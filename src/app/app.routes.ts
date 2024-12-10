@@ -13,7 +13,7 @@ export const routes: Routes = [
       {
         path: AppRoutes.HOME,
         loadChildren: () =>
-          import('@home/home.routes').then((m) => m.HOME_ROUTES),
+          import('./routes/home/home.routes').then((m) => m.HOME_ROUTES),
       },
       {
         path: '',
