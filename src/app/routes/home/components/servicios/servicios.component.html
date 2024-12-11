@@ -1,12 +1,10 @@
-<p>servicios works!</p>
-
 <div class="mb-20">
   <header>
     <h2 class="text-primary text-balance text-center text-5xl my-12 font-bold">
       Precios transparentes, la mejor manera de respetar tu tiempo
     </h2>
   </header>
-  <main class="flex flex-wrap gap-8 justify-center items-start">
+  <main id="servicios" class="flex flex-wrap gap-8 justify-center items-start">
     @for (servicio of servicios; track servicio.id) {
     <div class="max-w-96 flex flex-col gap-6 rounded-2xl border border-tertiary-black p-8 bg-primary-white">
       <section class="flex flex-col gap-2">
@@ -50,18 +48,17 @@
     </div>
     }
   </main>
-  <footer
-    class="max-w-96 flex flex-col gap-6 mx-auto mt-8 rounded-2xl bg-primary-black border border-secondary-white p-8">
+  <footer class="max-w-96 flex flex-col gap-6 mx-auto mt-8 rounded-2xl bg-primary-black p-8">
     <div class="flex flex-col gap-2">
-      <div class="text-primary-white font-bold">
+      <div class="text-2xl text-primary-white font-bold">
         Información relevante
       </div>
-      <div class="text-secondary-white">
+      <div class="text-base text-secondary-white text-pretty">
         Todos los planes contienen un precio aproximado; los precios y los tiempos pueden ajustarse en función de los
         detalles de cada cliente
       </div>
     </div>
-    <div class="flex flex-col gap-2 text-secondary-white">
+    <div class="flex flex-col gap-2 text-base text-secondary-white">
       <div>
         Ser claro es la mejor manera que tengo de respetar el tiempo del cliente
       </div>
@@ -69,7 +66,10 @@
         El precio es orientativo y se concretará una vez tengamos todos los detalles
       </div>
       <div>
-        En todos los servicios, ofrezco un servicio de *.
+        Los precios están sin IVA.
+      </div>
+      <div>
+        En todos los servicios, ofrezco un servicio de *
       </div>
     </div>
 
