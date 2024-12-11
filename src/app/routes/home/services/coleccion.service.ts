@@ -6,31 +6,33 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ColeccionService {
+  readonly IMG_PATH = 'img/colecciones';
+
   private coleccionesSubject: BehaviorSubject<Coleccion[]> =
     new BehaviorSubject<Coleccion[]>([
       {
         id: 1,
-        imgUrl: 'img/colecciones/1.webp',
+        imgUrl: `${this.IMG_PATH}/1.webp`,
         alt: 'Imagen Jamon Cortado',
       },
       {
         id: 2,
-        imgUrl: 'img/colecciones/1.webp',
+        imgUrl: `${this.IMG_PATH}/FwZzOmNWIAIoM88.webp`,
         alt: 'Imagen Jamon Cortado',
       },
       {
         id: 3,
-        imgUrl: 'img/colecciones/1.webp',
+        imgUrl: `${this.IMG_PATH}/FpAxINXaYAEEf_R.webp`,
         alt: 'Imagen Jamon Cortado',
       },
       {
         id: 4,
-        imgUrl: 'img/colecciones/1.webp',
+        imgUrl: `${this.IMG_PATH}/1.webp`,
         alt: 'Imagen Jamon Cortado',
       },
       {
         id: 5,
-        imgUrl: 'img/colecciones/1.webp',
+        imgUrl: `${this.IMG_PATH}/1.webp`,
         alt: 'Imagen Jamon Cortado',
       },
     ]);
