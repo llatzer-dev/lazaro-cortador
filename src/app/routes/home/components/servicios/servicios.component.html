@@ -17,11 +17,18 @@
           {{ servicio.precioFinal }}<span class="text-xl text-tertiary-black">€</span>
         </p>
 
-        <section class="flex flex-col gap-2 tertiary-black">
+        <section class="flex flex-col gap-2 text-tertiary-black">
           <label class="flex justify-between space-x-2">
             <span class="text-base">Incrementar precio</span>
             <input type="checkbox" (change)="togglePrecio(servicio.id, $event, 'incrementar')"
-              class="form-checkbox h-5 w-5 text-blue-500">
+              class="h-5 w-5 text-blue-500">
+          </label>
+
+          <label class="flex justify-between items-center space-x-4">
+            <span class="text-base">Número de patas de jamón</span>
+            <input type="number" [value]="0" (input)="togglePrecio(servicio.id, $event, 'incrementar')"
+              class="w-12 text-center px-2 border border-skeleton hover:border-primary-black transition-colors duration-300 rounded-lg"
+              min="0" />
           </label>
 
           <label class="flex justify-between space-x-2">
@@ -33,13 +40,12 @@
           <label class="flex justify-between items-center space-x-2">
             <span class="text-base">Platos Incluidos</span>
             <div class="flex gap-2 items-center">
-              <div class="border border-tertiary-black rounded-lg text-primary-black px-2">
+              <div class="border border-skeleton rounded-lg text-primary-black px-2">
                 €10
               </div>
               <input type="checkbox" (change)="togglePrecio(servicio.id, $event, 'platos')"
                 class="form-checkbox h-5 w-5 text-blue-500">
             </div>
-
           </label>
         </section>
 

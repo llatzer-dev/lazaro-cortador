@@ -27,12 +27,27 @@ export class ColeccionService {
       },
       {
         id: 4,
-        imgUrl: `${this.IMG_PATH}/1.webp`,
+        imgUrl: `${this.IMG_PATH}/F5XtKMAWcAAMrQH.webp`,
         alt: 'Imagen Jamon Cortado',
       },
       {
         id: 5,
-        imgUrl: `${this.IMG_PATH}/1.webp`,
+        imgUrl: `${this.IMG_PATH}/Fy2y49qWwAAwNz2.webp`,
+        alt: 'Imagen Jamon Cortado',
+      },
+      {
+        id: 6,
+        imgUrl: `${this.IMG_PATH}/Fy2y5itXwAcgIBc.webp`,
+        alt: 'Imagen Jamon Cortado',
+      },
+      {
+        id: 7,
+        imgUrl: `${this.IMG_PATH}/FOkWWzwWQAoBWOl.webp`,
+        alt: 'Imagen Jamon Cortado',
+      },
+      {
+        id: 8,
+        imgUrl: `${this.IMG_PATH}/FfNwoQ2XkAICcSc.webp`,
         alt: 'Imagen Jamon Cortado',
       },
     ]);
