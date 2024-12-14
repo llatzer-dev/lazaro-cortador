@@ -21,7 +21,6 @@ import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.servic
 })
 export class ColeccionesComponent implements OnInit {
   colecciones$: Observable<Coleccion[]> = of([]);
-  coleccionesLength$: WritableSignal<number> = signal(0);
 
   constructor(
     private readonly coleccionService: ColeccionService,
