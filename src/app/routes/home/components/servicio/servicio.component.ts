@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { debounceTime, pairwise, startWith, takeUntil } from 'rxjs';
+import { pairwise, startWith, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-servicio',
@@ -58,7 +58,10 @@ export class ServicioComponent {
           );
           break;
         case 'number':
-          caracteristicasForm[key] = this.fb.control(0, [Validators.required]);
+          caracteristicasForm[key] = this.fb.control(1, [
+            Validators.min(1),
+            Validators.required,
+          ]);
           break;
         default:
           break;
@@ -114,5 +117,8 @@ export class ServicioComponent {
     const form = this.formularios[id];
     console.log('Formulario para el servicio ID:', id);
     console.log('Valores del formulario:', form.value);
+
+    // https://forms.gle/BC9VZYZGhRZEoGxw7
+    window.open('https://forms.gle/BC9VZYZGhRZEoGxw7', '_blank');
   }
 }
