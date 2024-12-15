@@ -5,8 +5,13 @@
     </h2>
   </header>
   <main id="servicios" class="flex flex-wrap gap-8 justify-center items-start">
+    @defer (on viewport) {
     @for (servicio of $servicios(); track servicio.id) {
     <app-servicio [servicio]="servicio" />
+    }
+    } @placeholder {
+    <!-- TODO: poner un skeleton de servicios -->
+    <div>Cargando...</div>
     }
   </main>
   <footer class="max-w-96 flex flex-col gap-6 mx-auto mt-8 rounded-2xl bg-primary-black p-8">
