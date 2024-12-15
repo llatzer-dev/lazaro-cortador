@@ -2,7 +2,7 @@ export interface Caracteristica {
   id: number;
   labelId: string;
   label: string;
-  tipo: string;
+  tipo: 'check' | 'normal' | 'number';
   precioCoste: number;
 }
 

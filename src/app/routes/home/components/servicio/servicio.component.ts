@@ -93,21 +93,16 @@ export class ServicioComponent {
                 `El control ${controlName} cambió de ${prevValues[controlName]} a ${newValues[controlName]}`
               );
 
-              // Actualizar el precio basándonos en el valor modificado
-              let value = newValues[controlName];
-              let previousValue = prevValues[controlName];
-
-              // if (previousValue < value) {
-              //   value = 1;
-              // } else if (previousValue > value) {
-              //   value = -1;
-              // }
-
-              console.log('Este es el value que se manda al servicio: ', value);
-              this.serviciosService.updateServiciosPrice(
-                value,
-                caracteristicaLabelId
-              );
+              // Calculamos la diferencia y actualizamos el precio
+              const difference =
+                newValues[controlName] - prevValues[controlName];
+              if (difference !== 0) {
+                console.log('Diferencia: ', difference);
+                this.serviciosService.updateServiciosPrice(
+                  difference,
+                  caracteristicaLabelId
+                );
+              }
             }
           });
         });

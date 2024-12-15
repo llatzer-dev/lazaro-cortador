@@ -53,18 +53,22 @@
           </div>
           <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
             formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
-            class="h-5 w-5"> {{caracteristica.precioCoste}}
-          }
-          }
-          @case ('number') {
-          <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
-            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="number" min="0"
-            class="w-12 text-center border border-skeleton hover:border-primary-black transition-colors duration-300 rounded-lg" />
-          }
-          @default {
-          Default case.
-          }
-          }
+            class="h-5 w-5">
+          } @else if (caracteristica.precioCoste < 0) { <input
+            id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
+            class="h-5 w-5">
+            }
+            }
+            @case ('number') {
+            <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+              formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="number" min="0"
+              class="w-12 text-center border border-skeleton hover:border-primary-black transition-colors duration-300 rounded-lg" />
+            }
+            @default {
+            Default case.
+            }
+            }
         </div>
       </span>
       }

@@ -44,7 +44,6 @@ export class ServiciosService {
         'Enseñanza teórica y práctica para convertirte en cortador profesional de jamón, aprendiendo técnicas y conocimientos esenciales.',
       precio: 80,
       precioBase: 80,
-      incluyePlatos: false,
       caracteristicas: [
         {
           id: 21,
@@ -62,10 +61,24 @@ export class ServiciosService {
         },
         {
           id: 23,
-          labelId: 'patass',
-          label: 'Número de patas de jamón',
+          labelId: 'clases',
+          label: 'Número de clases',
           tipo: 'number',
-          precioCoste: 30,
+          precioCoste: 80,
+        },
+        {
+          id: 24,
+          labelId: 'horariomanana',
+          label: 'Horario 10:00-13:00',
+          tipo: 'check',
+          precioCoste: -0.1,
+        },
+        {
+          id: 25,
+          labelId: 'horariotarde',
+          label: 'Horario 15:00-18:00',
+          tipo: 'check',
+          precioCoste: -0.1,
         },
       ],
     },
@@ -99,13 +112,14 @@ export class ServiciosService {
       if (typeof value === 'boolean') {
         // Manejo para valores booleanos
         if (value) {
-          updatedServicio.precio += precioCaracteristica; // Sumar precio si es true
+          updatedServicio.precio += parseInt(precioCaracteristica.toFixed(0)); // Sumar precio si es true
         } else {
-          updatedServicio.precio -= precioCaracteristica; // Restar precio si es false
+          updatedServicio.precio -= parseInt(precioCaracteristica.toFixed(0)); // Restar precio si es false
         }
       } else if (typeof value === 'number') {
         // Manejo para valores numéricos (ej. cantidad)
-        updatedServicio.precio = precioBase + value * precioCaracteristica;
+        updatedServicio.precio +=
+          value * parseInt(precioCaracteristica.toFixed(0));
       }
 
       // Asegurarnos de no permitir precios negativos
