@@ -47,14 +47,14 @@ export class ServicioComponent {
           // Crear FormControl con valor inicial
           const control = this.fb.control(false); // valor inicial es false
           // Si el precio es 0, deshabilitar el control
-          if (caracteristica.precio === 0) {
+          if (caracteristica.precioCoste === 0) {
             control.disable(); // Deshabilitar el control
           }
           caracteristicasForm[key] = control;
           break;
         case 'normal':
           caracteristicasForm[key] = this.fb.control(
-            caracteristica.precio || 0
+            caracteristica.precioCoste || 0
           );
           break;
         case 'number':
@@ -78,19 +78,32 @@ export class ServicioComponent {
       const form = this.formularios[parseInt(id)];
 
       form.valueChanges
-        .pipe(startWith(form.value), pairwise(), takeUntil(this.destroy$))
+        .pipe(
+          startWith(form.value), // Inicializa con el estado actual del formulario
+          pairwise(), // Compara el estado inicial con el primer cambio
+          takeUntil(this.destroy$)
+        )
         .subscribe(([prevValues, newValues]) => {
           Object.keys(newValues).forEach((controlName) => {
             if (prevValues[controlName] !== newValues[controlName]) {
-              const caracteristicaLabelId = controlName.split('-')[2];
+              const partes = controlName.split('-'); // Dividir para obtener IDs
+              const caracteristicaLabelId = partes[2];
 
-              const value = this.calculateValue(
-                prevValues[controlName],
-                newValues[controlName]
-              );
               console.log(
-                `Control ${controlName} cambió de ${prevValues[controlName]} a ${newValues[controlName]}. Enviado: ${value}`
+                `El control ${controlName} cambió de ${prevValues[controlName]} a ${newValues[controlName]}`
               );
+
+              // Actualizar el precio basándonos en el valor modificado
+              let value = newValues[controlName];
+              let previousValue = prevValues[controlName];
+
+              // if (previousValue < value) {
+              //   value = 1;
+              // } else if (previousValue > value) {
+              //   value = -1;
+              // }
+
+              console.log('Este es el value que se manda al servicio: ', value);
               this.serviciosService.updateServiciosPrice(
                 value,
                 caracteristicaLabelId
@@ -99,15 +112,6 @@ export class ServicioComponent {
           });
         });
     });
-  }
-
-  // Función para calcular el valor a pasar al servicio
-  private calculateValue(previousValue: any, currentValue: any): number {
-    let value = currentValue;
-    if (value > 1) {
-      value -= previousValue;
-    }
-    return previousValue > value ? -1 : value;
   }
 
   // Método que maneja el submit

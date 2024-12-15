@@ -3,7 +3,7 @@ export interface Caracteristica {
   labelId: string;
   label: string;
   tipo: string;
-  precio: number;
+  precioCoste: number;
 }
 
 export interface Servicio {
@@ -11,6 +11,6 @@ export interface Servicio {
   nombre: string;
   descripcion: string;
   precio: number;
-  incluyePlatos: boolean;
+  precioBase: number;
   caracteristicas: Caracteristica[];
 }

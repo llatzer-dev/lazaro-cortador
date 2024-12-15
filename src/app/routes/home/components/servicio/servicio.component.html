@@ -40,20 +40,20 @@
             class="h-5 w-5">
           }
           @case ('check') {
-          @if (caracteristica.precio > 0) {
+          @if (caracteristica.precioCoste > 0) {
           <div class="border border-skeleton rounded-lg text-primary-black px-2">
-            €{{ caracteristica.precio }}
+            €{{ caracteristica.precioCoste }}
           </div>
           <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
             formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
             class="h-5 w-5">
-          } @else if (caracteristica.precio == 0) {
+          } @else if (caracteristica.precioCoste == 0) {
           <div class="border border-skeleton rounded-lg text-primary-black px-2">
             Gratis
           </div>
           <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
             formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
-            class="h-5 w-5" [disabled]="caracteristica.precio <= 0"> {{caracteristica.precio}}
+            class="h-5 w-5"> {{caracteristica.precioCoste}}
           }
           }
           @case ('number') {

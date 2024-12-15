@@ -12,28 +12,28 @@ export class ServiciosService {
       descripcion:
         'Servicio integral para cortar jamón en todo tipo de eventos. Personalizado para cada ocasión.',
       precio: 100,
-      incluyePlatos: false,
+      precioBase: 100,
       caracteristicas: [
         {
           id: 11,
           labelId: 'platos',
           label: 'Platos Incluidos',
           tipo: 'check',
-          precio: 10,
+          precioCoste: 10,
         },
         {
           id: 12,
           labelId: 'decoracion',
           label: 'Decoración y montaje propio',
           tipo: 'normal',
-          precio: 0,
+          precioCoste: 0,
         },
         {
           id: 13,
           labelId: 'patas',
           label: 'Número de patas de jamón',
           tipo: 'number',
-          precio: 30,
+          precioCoste: 30,
         },
       ],
     },
@@ -43,6 +43,7 @@ export class ServiciosService {
       descripcion:
         'Enseñanza teórica y práctica para convertirte en cortador profesional de jamón, aprendiendo técnicas y conocimientos esenciales.',
       precio: 80,
+      precioBase: 80,
       incluyePlatos: false,
       caracteristicas: [
         {
@@ -50,7 +51,21 @@ export class ServiciosService {
           labelId: 'cosa',
           label: 'Alguna cosa',
           tipo: 'check',
-          precio: 0,
+          precioCoste: 0,
+        },
+        {
+          id: 22,
+          labelId: 'platoss',
+          label: 'Platos Incluidos',
+          tipo: 'check',
+          precioCoste: 10,
+        },
+        {
+          id: 23,
+          labelId: 'patass',
+          label: 'Número de patas de jamón',
+          tipo: 'number',
+          precioCoste: 30,
         },
       ],
     },
@@ -73,10 +88,13 @@ export class ServiciosService {
         return servicio; // Si no hay característica, regresar el servicio sin cambios
       }
 
-      const precioCaracteristica = caracteristica.precio || 0;
+      const precioCaracteristica = caracteristica.precioCoste || 0;
 
       // Clonar el servicio para no modificar directamente el original
       const updatedServicio = { ...servicio };
+
+      // Usar el precio base dinámico
+      const { precioBase } = updatedServicio;
 
       if (typeof value === 'boolean') {
         // Manejo para valores booleanos
@@ -87,7 +105,7 @@ export class ServiciosService {
         }
       } else if (typeof value === 'number') {
         // Manejo para valores numéricos (ej. cantidad)
-        updatedServicio.precio += precioCaracteristica * value;
+        updatedServicio.precio = precioBase + value * precioCaracteristica;
       }
 
       // Asegurarnos de no permitir precios negativos
