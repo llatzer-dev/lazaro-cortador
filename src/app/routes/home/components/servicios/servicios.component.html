@@ -5,53 +5,8 @@
     </h2>
   </header>
   <main id="servicios" class="flex flex-wrap gap-8 justify-center items-start">
-    @for (servicio of servicios; track servicio.id) {
-    <div class="max-w-96 flex flex-col gap-6 rounded-2xl border border-tertiary-black p-8 bg-primary-white">
-      <section class="flex flex-col gap-2">
-        <h3 class="text-2xl font-bold">{{ servicio.nombre }}</h3>
-        <p class="text-base">{{ servicio.descripcion }}</p>
-      </section>
-
-      <article>
-        <p class="text-6xl font-bold mb-2">
-          {{ servicio.precioFinal }}<span class="text-xl text-tertiary-black">€</span>
-        </p>
-
-        <section class="flex flex-col gap-2 text-tertiary-black">
-          <label class="flex justify-between space-x-2">
-            <span class="text-base">Incrementar precio</span>
-            <input type="checkbox" (change)="togglePrecio(servicio.id, $event, 'incrementar')"
-              class="h-5 w-5 text-blue-500">
-          </label>
-
-          <label class="flex justify-between items-center space-x-4">
-            <span class="text-base">Número de patas de jamón</span>
-            <input type="number" [value]="0" (input)="togglePrecio(servicio.id, $event, 'incrementar')"
-              class="w-12 text-center px-2 border border-skeleton hover:border-primary-black transition-colors duration-300 rounded-lg"
-              min="0" />
-          </label>
-
-          <label class="flex justify-between space-x-2">
-            <span class="text-base">Gasolina (si está a más de 30 km de Aspe)</span>
-            <input type="checkbox" (change)="togglePrecio(servicio.id, $event, 'gasolina')"
-              class="form-checkbox h-5 w-5 text-blue-500" [disabled]="servicio.distancia <= 30">
-          </label>
-
-          <label class="flex justify-between items-center space-x-2">
-            <span class="text-base">Platos Incluidos</span>
-            <div class="flex gap-2 items-center">
-              <div class="border border-skeleton rounded-lg text-primary-black px-2">
-                €10
-              </div>
-              <input type="checkbox" (change)="togglePrecio(servicio.id, $event, 'platos')"
-                class="form-checkbox h-5 w-5 text-blue-500">
-            </div>
-          </label>
-        </section>
-
-      </article>
-
-    </div>
+    @for (servicio of $servicios(); track servicio.id) {
+    <app-servicio [servicio]="servicio" />
     }
   </main>
   <footer class="max-w-96 flex flex-col gap-6 mx-auto mt-8 rounded-2xl bg-primary-black p-8">
@@ -78,7 +33,6 @@
         En todos los servicios, ofrezco un servicio de *
       </div>
     </div>
-
 
   </footer>
 </div>

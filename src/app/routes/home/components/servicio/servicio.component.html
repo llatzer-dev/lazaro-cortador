@@ -1,0 +1,76 @@
+<div class="max-w-96 flex flex-col gap-6 rounded-2xl border border-tertiary-black p-8 bg-primary-white">
+  <section class="flex flex-col gap-2">
+    <h3 class="text-2xl font-bold">{{ servicio().nombre }}</h3>
+    <p class="text-base">{{ servicio().descripcion }}</p>
+  </section>
+
+  <article>
+    <p class="text-6xl font-bold mb-2">
+      {{ servicio().precio }}<span class="text-xl text-tertiary-black">€</span>
+    </p>
+
+    <form [formGroup]="formularios[servicio().id]" (ngSubmit)="onSubmit(servicio().id)"
+      class="flex flex-col gap-2 text-tertiary-black">
+      <input class="input-field w-input" maxlength="256" name="email" data-name="email" placeholder="What's your email?"
+        type="email" id="email-3" required="">
+
+      <input type="submit" data-wait="Por favor espere..." id="marketing"
+        class="cursor-pointer bg-primary-black hover:bg-tertiary-black text-primary-white rounded-lg px-4 py-2"
+        value="Hablemos de los detalles">
+
+      <div class="gap-4 flex flex-row justify-center items-center">
+        <div class="w-full h-px bg-gray-300"></div>
+        <div class="flex">
+          <div class="text-small medium">Básico</div>
+        </div>
+        <div class="w-full h-px bg-gray-300"></div>
+      </div>
+
+      @if (servicio().caracteristicas) {
+      @for (caracteristica of servicio().caracteristicas; track caracteristica.id) {
+      <span class="flex justify-between items-center space-x-2">
+        <label for="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" class="text-base">
+          {{caracteristica.label }}
+        </label>
+        <div class="flex gap-2 items-center">
+          @switch (caracteristica.tipo) {
+          @case ('normal') {
+          <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox" hidden
+            class="h-5 w-5">
+          }
+          @case ('check') {
+          @if (caracteristica.precio > 0) {
+          <div class="border border-skeleton rounded-lg text-primary-black px-2">
+            €{{ caracteristica.precio }}
+          </div>
+          <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
+            class="h-5 w-5">
+          } @else if (caracteristica.precio == 0) {
+          <div class="border border-skeleton rounded-lg text-primary-black px-2">
+            Gratis
+          </div>
+          <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="checkbox"
+            class="h-5 w-5" [disabled]="caracteristica.precio <= 0"> {{caracteristica.precio}}
+          }
+          }
+          @case ('number') {
+          <input id="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}"
+            formControlName="{{servicio().id}}-caracteristica-{{ caracteristica.labelId }}" type="number" min="0"
+            class="w-12 text-center border border-skeleton hover:border-primary-black transition-colors duration-300 rounded-lg" />
+          }
+          @default {
+          Default case.
+          }
+          }
+        </div>
+      </span>
+      }
+      }
+
+    </form>
+  </article>
+
+</div>
