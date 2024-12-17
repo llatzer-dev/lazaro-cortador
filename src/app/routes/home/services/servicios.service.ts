@@ -1,4 +1,4 @@
-import { Injectable, Signal, WritableSignal, signal } from '@angular/core';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 import { Servicio } from '@app/core/models/servicio.model';
 
 @Injectable({
@@ -12,7 +12,6 @@ export class ServiciosService {
       descripcion:
         'Servicio integral para cortar jamón en todo tipo de eventos. Personalizado para cada ocasión.',
       precio: 100,
-      precioBase: 100,
       caracteristicas: [
         {
           id: 11,
@@ -43,7 +42,6 @@ export class ServiciosService {
       descripcion:
         'Enseñanza teórica y práctica para convertirte en cortador profesional de jamón.',
       precio: 80,
-      precioBase: 80,
       caracteristicas: [
         {
           id: 21,
@@ -113,9 +111,6 @@ export class ServiciosService {
       // Clonar el servicio para no modificar directamente el original
       const updatedServicio = { ...servicio };
 
-      // Usar el precio base dinámico
-      const { precioBase } = updatedServicio;
-
       if (typeof value === 'boolean') {
         // Manejo para valores booleanos
         if (value) {
@@ -139,5 +134,27 @@ export class ServiciosService {
 
     // Actualizar el signal con los valores modificados
     this.$servicios.set([...updatedServicios]);
+  }
+
+  getServicioPrice(id: number): number {
+    const servicio = this.$servicios().find((servicio) => servicio.id === id);
+
+    if (!servicio) {
+      console.error(`Servicio con id ${id} no encontrado.`);
+      return 0;
+    }
+
+    return servicio.precio;
+  }
+
+  getServicioTituloPorId(id: number): string {
+    const servicio = this.$servicios().find((servicio) => servicio.id === id);
+
+    if (!servicio) {
+      console.error(`Servicio con id ${id} no encontrado.`);
+      return 'Servicio no encontrado';
+    }
+
+    return servicio.nombre;
   }
 }

@@ -11,6 +11,5 @@ export interface Servicio {
   nombre: string;
   descripcion: string;
   precio: number;
-  precioBase: number;
   caracteristicas: Caracteristica[];
 }

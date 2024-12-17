@@ -8,7 +8,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { pairwise, startWith, takeUntil } from 'rxjs';
+import { debounceTime, pairwise, startWith, takeUntil } from 'rxjs';
+import { EmailService } from '../../services/email.service';
+import { EmailData } from '@app/core/models/email.model';
 
 @Component({
   selector: 'app-servicio',
@@ -24,6 +26,7 @@ export class ServicioComponent {
 
   constructor(
     private serviciosService: ServiciosService,
+    private emailService: EmailService,
     private readonly destroy$: AutoDestroyService,
     private readonly fb: FormBuilder
   ) {}
@@ -36,11 +39,10 @@ export class ServicioComponent {
   initForms(): void {
     // Definir caracteristicasForm con tipo dinámico
     const caracteristicasForm: { [key: string]: any } = {};
+    const servicioId = this.servicio().id;
 
     this.servicio().caracteristicas.forEach((caracteristica) => {
-      const key = `${this.servicio().id}-caracteristica-${
-        caracteristica.labelId
-      }`;
+      const key = `${servicioId}-caracteristica-${caracteristica.labelId}`;
 
       switch (caracteristica.tipo) {
         case 'check':
@@ -68,10 +70,16 @@ export class ServicioComponent {
       }
     });
 
+    // Añadir FormControls específicos para 1-email y 2-email
+    caracteristicasForm[`${servicioId}-email`] = this.fb.control('', [
+      Validators.required,
+      Validators.email,
+    ]);
+
     console.log('FormGroups: ', caracteristicasForm);
 
     // Asignar las características al formulario de este servicio
-    this.formularios[this.servicio().id] = this.fb.group({
+    this.formularios[servicioId] = this.fb.group({
       ...caracteristicasForm, // Incluir todas las características dinámicamente
     });
   }
@@ -88,6 +96,11 @@ export class ServicioComponent {
         )
         .subscribe(([prevValues, newValues]) => {
           Object.keys(newValues).forEach((controlName) => {
+            // Ignorar si el controlName es '1-email' o '2-email'
+            if (controlName === '1-email' || controlName === '2-email') {
+              return; // No hacer nada si es uno de esos casos
+            }
+
             if (prevValues[controlName] !== newValues[controlName]) {
               const partes = controlName.split('-'); // Dividir para obtener IDs
               const caracteristicaLabelId = partes[2];
@@ -118,7 +131,85 @@ export class ServicioComponent {
     console.log('Formulario para el servicio ID:', id);
     console.log('Valores del formulario:', form.value);
 
-    // https://forms.gle/BC9VZYZGhRZEoGxw7
+    this.sendEmail(id);
+
     window.open('https://forms.gle/BC9VZYZGhRZEoGxw7', '_blank');
+  }
+
+  sendEmail(id: number): void {
+    const form = this.formularios[id];
+    if (!form) {
+      console.error(`Formulario con id ${id} no encontrado.`);
+      return;
+    }
+
+    const emailData = this.transformarDatosEmail(form.value, id);
+
+    console.log('Datos transformados', emailData);
+
+    this.emailService
+      .sendEmail(emailData)
+      .pipe(debounceTime(1000), takeUntil(this.destroy$))
+      .subscribe({
+        next: (response) => {
+          console.log('Email enviado con éxito:', response);
+        },
+        error: (error) => {
+          console.error('Error al enviar el email:', error);
+        },
+      });
+  }
+
+  transformarDatosEmail(formData: any, id: number): EmailData {
+    let email = '';
+    const caracteristicas: string[] = [];
+
+    // Extraer email y características
+    Object.keys(formData).forEach((key) => {
+      if (key === `${id}-email`) {
+        email = formData[key];
+      } else if (key.includes('caracteristica')) {
+        const label = key.split('-').pop(); // Extraer el nombre de la característica
+        const valor = formData[key];
+
+        // Determinar si es un booleano, número, o 0 específico
+        let valorLegible = '';
+        if (typeof valor === 'boolean') {
+          valorLegible = valor ? 'Sí' : 'No';
+        } else if (typeof valor === 'number') {
+          // Manejar casos especiales como "0" siendo "Sí" para ciertas características
+          if (label?.toLowerCase() === 'decoracion' && valor === 0) {
+            valorLegible = 'Sí';
+          } else if (valor > 0) {
+            valorLegible = `${valor} unidades`;
+          } else {
+            valorLegible = 'No';
+          }
+        }
+
+        // Agregar al array de características en formato "Label: Valor"
+        caracteristicas.push(`${this.formatLabel(label!)}: ${valorLegible}`);
+      }
+    });
+
+    const nombreServicio = this.serviciosService.getServicioTituloPorId(id);
+
+    const precioTotal = this.serviciosService.getServicioPrice(id);
+
+    return {
+      servicio: nombreServicio,
+      email: email,
+      precio: precioTotal,
+      caracteristicas: caracteristicas.join(', '), // Convertir el array a un string legible
+    };
+  }
+
+  // Función auxiliar para formatear nombres de características
+  private formatLabel(label: string): string {
+    return label
+      .replace(/([A-Z])/g, ' $1') // Insertar espacio antes de mayúsculas
+      .replace(/-/g, ' ') // Reemplazar guiones por espacios
+      .trim()
+      .replace(/^./, (str) => str.toUpperCase()); // Capitalizar la primera letra
   }
 }

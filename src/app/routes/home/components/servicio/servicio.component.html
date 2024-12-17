@@ -11,8 +11,9 @@
 
     <form [formGroup]="formularios[servicio().id]" (ngSubmit)="onSubmit(servicio().id)"
       class="flex flex-col gap-2 text-tertiary-black">
-      <input class="input-field w-input" maxlength="256" name="email" data-name="email"
-        placeholder="¿Cuál es tu correo electrónico?" type="email" id="email-3" required="">
+      <input class="border border-skeleton rounded-lg px-4 py-2" maxlength="256" name="email" data-name="email"
+        placeholder="¿Cuál es tu correo electrónico?" type="email" id="{{servicio().id}}-email"
+        formControlName="{{servicio().id}}-email">
 
       <input type="submit" data-wait="Por favor espere..." id="marketing"
         class="cursor-pointer bg-primary-black hover:bg-tertiary-black text-primary-white rounded-lg px-4 py-2"
