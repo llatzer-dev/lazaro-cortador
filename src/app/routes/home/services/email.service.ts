@@ -22,6 +22,7 @@ export class EmailService {
     };
 
     // Realizar la petición POST
+    // TODO tipar la respuesta
     return this.http.post(environment.EMAILJS_API, payload, {
       responseType: 'text',
     });
