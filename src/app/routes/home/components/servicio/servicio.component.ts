@@ -60,8 +60,8 @@ export class ServicioComponent {
           );
           break;
         case 'number':
-          caracteristicasForm[key] = this.fb.control(1, [
-            Validators.min(1),
+          caracteristicasForm[key] = this.fb.control(0, [
+            Validators.min(0),
             Validators.required,
           ]);
           break;

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "nombre": "Corte Profesional",
+    "descripcion": "Servicio solo de corte de jamón en todo tipo de eventos. Personalizado para cada ocasión.",
+    "precio": 0,
+    "caracteristicas": [
+      {
+        "id": 11,
+        "labelId": "solocorte",
+        "label": "Servicio solo de corte",
+        "tipo": "normal",
+        "precioCoste": 0
+      },
+      {
+        "id": 12,
+        "labelId": "corte",
+        "label": "Número de cortes",
+        "tipo": "number",
+        "precioCoste": 160
+      },
+      {
+        "id": 13,
+        "labelId": "platos",
+        "label": "Platos Incluidos",
+        "tipo": "check",
+        "precioCoste": 20
+      },
+      {
+        "id": 14,
+        "labelId": "distanciacorte",
+        "label": "Desplazamiento +40km",
+        "tipo": "check",
+        "precioCoste": 20
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Corte Profesional Integral",
+    "descripcion": "Servicio integral de corte de jamón en todo tipo de eventos. Personalizado para cada ocasión.",
+    "precio": 0,
+    "caracteristicas": [
+      {
+        "id": 31,
+        "labelId": "piezascorte",
+        "label": "Incluye piezas y corte",
+        "tipo": "normal",
+        "precioCoste": 0
+      },
+      {
+        "id": 32,
+        "labelId": "corte2",
+        "label": "Número de cortes",
+        "tipo": "number",
+        "precioCoste": 160
+      },
+      {
+        "id": 33,
+        "labelId": "platos2",
+        "label": "Platos Incluidos",
+        "tipo": "check",
+        "precioCoste": 20
+      },
+      {
+        "id": 34,
+        "labelId": "distanciacorte2",
+        "label": "Desplazamiento +40km",
+        "tipo": "check",
+        "precioCoste": 20
+      },
+      {
+        "id": 35,
+        "labelId": "blanco",
+        "label": "Ibérico de cebo (precinto blanco)",
+        "tipo": "number",
+        "precioCoste": 160
+      },
+      {
+        "id": 36,
+        "labelId": "verde",
+        "label": "Ibérico cebo de campo (precinto verde)",
+        "tipo": "number",
+        "precioCoste": 225
+      },
+      {
+        "id": 37,
+        "labelId": "rojo",
+        "label": "Ibérico de bellota 75% (precinto rojo)",
+        "tipo": "number",
+        "precioCoste": 450
+      },
+      {
+        "id": 38,
+        "labelId": "negro",
+        "label": "Ibérico de bellota 100% (precinto negro)",
+        "tipo": "number",
+        "precioCoste": 550
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Cursos de Formación",
+    "descripcion": "Cursos personalizados individuales, de iniciación, avanzado y presentacion y emplatado.",
+    "precio": 0,
+    "caracteristicas": [
+      {
+        "id": 21,
+        "labelId": "materiales",
+        "label": "Materiales de estudio",
+        "tipo": "check",
+        "precioCoste": 0
+      },
+
+      {
+        "id": 25,
+        "labelId": "horario",
+        "label": "Horario adaptable al cliente",
+        "tipo": "normal",
+        "precioCoste": 0
+      },
+      {
+        "id": 26,
+        "labelId": "cursoiniciacion",
+        "label": "Curso de iniciación",
+        "tipo": "check",
+        "precioCoste": -0.1
+      },
+      {
+        "id": 27,
+        "labelId": "cursoavanzado",
+        "label": "Curso avanzado",
+        "tipo": "check",
+        "precioCoste": -0.1
+      },
+      {
+        "id": 28,
+        "labelId": "cursopresentacion",
+        "label": "Curso de presentación y emplatado",
+        "tipo": "check",
+        "precioCoste": -0.1
+      }
+    ]
+  }
+]

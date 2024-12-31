@@ -1,98 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { Servicio } from '@app/core/models/servicio.model';
+import { catchError, of, take, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiciosService {
-  public $servicios: WritableSignal<Servicio[]> = signal([
-    {
-      id: 1,
-      nombre: 'Corte profesional',
-      descripcion:
-        'Servicio integral para cortar jamón en todo tipo de eventos. Personalizado para cada ocasión.',
-      precio: 100,
-      caracteristicas: [
-        {
-          id: 11,
-          labelId: 'platos',
-          label: 'Platos Incluidos',
-          tipo: 'check',
-          precioCoste: 10,
-        },
-        {
-          id: 12,
-          labelId: 'decoracion',
-          label: 'Decoración y montaje propio',
-          tipo: 'normal',
-          precioCoste: 0,
-        },
-        {
-          id: 13,
-          labelId: 'patas',
-          label: 'Número de patas de jamón',
-          tipo: 'number',
-          precioCoste: 30,
-        },
-      ],
-    },
-    {
-      id: 2,
-      nombre: 'Formación Masterclass',
-      descripcion:
-        'Enseñanza teórica y práctica para convertirte en cortador profesional de jamón.',
-      precio: 80,
-      caracteristicas: [
-        {
-          id: 21,
-          labelId: 'materiales',
-          label: 'Materiales de estudio',
-          tipo: 'check',
-          precioCoste: 0,
-        },
-        {
-          id: 22,
-          labelId: 'practica',
-          label: 'Prácticas en clase',
-          tipo: 'check',
-          precioCoste: 0,
-        },
-        {
-          id: 23,
-          labelId: 'platoss',
-          label: 'Platos Incluidos',
-          tipo: 'check',
-          precioCoste: 10,
-        },
-        {
-          id: 24,
-          labelId: 'clases',
-          label: 'Número de clases',
-          tipo: 'number',
-          precioCoste: 80,
-        },
-        {
-          id: 25,
-          labelId: 'horariomanana',
-          label: 'Horario 10:00-13:00',
-          tipo: 'check',
-          precioCoste: -0.1,
-        },
-        {
-          id: 26,
-          labelId: 'horariotarde',
-          label: 'Horario 15:00-18:00',
-          tipo: 'check',
-          precioCoste: -0.1,
-        },
-      ],
-    },
-  ]);
+  public $servicios: WritableSignal<Servicio[]> = signal([]);
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getServicios(): WritableSignal<Servicio[]> {
-    return this.$servicios;
+    // Realiza la llamada HTTP y toma solo un valor
+    this.http
+      .get<Servicio[]>('/json/servicios.json')
+      .pipe(
+        take(1), // Toma solo un valor y se desuscribe automáticamente
+        tap((data) => {
+          this.$servicios.set(data); // Actualiza el signal con los datos recibidos
+        }),
+        catchError((error) => {
+          console.error('Error al cargar los servicios:', error);
+          return of([]); // Devuelve un array vacío como fallback en caso de error
+        })
+      )
+      .subscribe(); // Aquí se hace la suscripción que automáticamente se desuscribe después de tomar 1 valor
+
+    return this.$servicios; // Devuelve el signal que ahora contiene los datos cargados
   }
 
   updateServiciosPrice(value: any, caracteristicaLabelId: string): void {

@@ -1,46 +1,43 @@
-<div class="mb-20">
+<div id="servicios" class="mb-20">
   <header>
     <h2 class="text-primary text-balance text-center text-3xl md:text-4xl lg:text-5xl my-8 md:my-12 font-bold">
       Precios transparentes, la mejor manera de respetar tu tiempo
     </h2>
   </header>
-  <main id="servicios" class="p-4 flex flex-wrap gap-6 md:gap-8 justify-center items-start">
+  <main class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     @defer (on viewport) {
     @for (servicio of $servicios(); track servicio.id) {
-    <app-servicio [servicio]="servicio" class="w-full sm:w-72 lg:w-96" />
+    <app-servicio [servicio]="servicio" class="w-full" />
     }
-    } @placeholder {
-    <!-- TODO: poner un skeleton de servicios -->
+    }
+    @placeholder {
     <div class="text-center">Cargando...</div>
     }
+
+    <footer class="flex flex-col gap-4 md:gap-6 rounded-2xl bg-primary-black p-4">
+      <div class="flex flex-col gap-2">
+        <div class="text-lg md:text-2xl text-primary-white font-bold">
+          Información relevante
+        </div>
+        <div class="text-sm md:text-base text-secondary-white text-pretty">
+          Todos los planes contienen un precio aproximado; los precios y los tiempos pueden ajustarse en función de los
+          detalles de cada cliente
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 text-sm md:text-base text-secondary-white">
+        <div class="flex gap-4 items-center">
+          <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
+          Ser claro es la mejor manera que tengo de respetar el tiempo del cliente
+        </div>
+        <div class="flex gap-4 items-center">
+          <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
+          El precio es orientativo y se concretará una vez tengamos todos los detalles
+        </div>
+        <div class="flex gap-4 items-center">
+          <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
+          Los precios están sin IVA
+        </div>
+      </div>
+    </footer>
   </main>
-  <footer class="mx-4 md:mx-auto max-w-96 flex flex-col gap-4 md:gap-6 mt-8 rounded-2xl bg-primary-black p-8 md:p-6 ">
-    <div class="flex flex-col gap-2">
-      <div class="text-lg md:text-2xl text-primary-white font-bold">
-        Información relevante
-      </div>
-      <div class="text-sm md:text-base text-secondary-white text-pretty">
-        Todos los planes contienen un precio aproximado; los precios y los tiempos pueden ajustarse en función de los
-        detalles de cada cliente
-      </div>
-    </div>
-    <div class="flex flex-col gap-2 text-sm md:text-base text-secondary-white">
-      <div class="flex gap-2 items-center">
-        <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
-        Ser claro es la mejor manera que tengo de respetar el tiempo del cliente
-      </div>
-      <div class="flex gap-2 items-center">
-        <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
-        El precio es orientativo y se concretará una vez tengamos todos los detalles
-      </div>
-      <div class="flex gap-2 items-center">
-        <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
-        Los precios están sin IVA
-      </div>
-      <div class="flex gap-2 items-center">
-        <img src="img/svg/diamond.svg" alt="Diamond Icon" class="size-4" />
-        En todos los servicios, ofrezco un servicio de *
-      </div>
-    </div>
-  </footer>
 </div>
