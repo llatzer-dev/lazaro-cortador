@@ -1,9 +1,9 @@
-# *
+# Allow all user-agents (search engines)
 User-agent: *
 Allow: /
 
-# Host
+# Specify the host for SEO purposes
 Host: https://lazarortega.com
 
-# Sitemaps
+# Sitemap location
 Sitemap: https://lazarortega.com/sitemap.xml
