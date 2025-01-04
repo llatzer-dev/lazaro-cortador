@@ -5,13 +5,15 @@
     </h2>
   </header>
   <main class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    @defer (on viewport) {
     @for (servicio of $servicios(); track servicio.id) {
+
+    @defer (on viewport) {
     <app-servicio [servicio]="servicio" class="w-full" />
-    }
     }
     @placeholder {
     <div class="text-center">Cargando...</div>
+    }
+
     }
 
     <footer class="flex flex-col gap-4 md:gap-6 rounded-2xl bg-primary-black p-4">
