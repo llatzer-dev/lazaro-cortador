@@ -76,7 +76,7 @@ export class ServicioComponent {
       Validators.email,
     ]);
 
-    console.log('FormGroups: ', caracteristicasForm);
+    // console.log('FormGroups: ', caracteristicasForm);
 
     // Asignar las características al formulario de este servicio
     this.formularios[servicioId] = this.fb.group({
@@ -105,9 +105,9 @@ export class ServicioComponent {
               const partes = controlName.split('-'); // Dividir para obtener IDs
               const caracteristicaLabelId = partes[2];
 
-              console.log(
-                `El control ${controlName} cambió de ${prevValues[controlName]} a ${newValues[controlName]}`
-              );
+              // console.log(
+              //   `El control ${controlName} cambió de ${prevValues[controlName]} a ${newValues[controlName]}`
+              // );
 
               // Calculamos la diferencia y actualizamos el precio
               const difference =
@@ -128,8 +128,8 @@ export class ServicioComponent {
   // Método que maneja el submit
   onSubmit(id: number): void {
     const form = this.formularios[id];
-    console.log('Formulario para el servicio ID:', id);
-    console.log('Valores del formulario:', form.value);
+    // console.log('Formulario para el servicio ID:', id);
+    // console.log('Valores del formulario:', form.value);
 
     this.sendEmail(id);
 
@@ -145,14 +145,14 @@ export class ServicioComponent {
 
     const emailData = this.transformarDatosEmail(form.value, id);
 
-    console.log('Datos transformados', emailData);
+    // console.log('Datos transformados', emailData);
 
     this.emailService
       .sendEmail(emailData)
       .pipe(debounceTime(1000), takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {
-          console.log('Email enviado con éxito:', response);
+          // console.log('Email enviado con éxito:', response);
         },
         error: (error) => {
           console.error('Error al enviar el email:', error);

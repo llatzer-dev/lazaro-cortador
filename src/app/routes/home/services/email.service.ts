@@ -11,7 +11,7 @@ export class EmailService {
   constructor(private http: HttpClient) {}
 
   sendEmail(emailData: EmailData): Observable<any> {
-    console.log('Contenido email', emailData);
+    // console.log('Contenido email', emailData);
 
     // Construir el payload para la petición
     const payload = {
