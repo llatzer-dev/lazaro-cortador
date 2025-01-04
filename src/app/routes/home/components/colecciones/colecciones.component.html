@@ -1,3 +1,5 @@
+@let colecciones = colecciones$ | async;
+
 <div>
   <header>
     <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
@@ -5,30 +7,21 @@
     </h2>
   </header>
 
-  @defer (on viewport) {
-  @if (colecciones$ | async; as colecciones) {
+  @if (colecciones) {
   <main
     class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 justify-items-center items-center">
     @for (coleccion of colecciones; track coleccion.id) {
+
+    @defer (on viewport) {
     <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" width="160" height="160"
       class="w-full h-full aspect-square object-cover rounded-2xl">
+    } @placeholder {
+    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
+    }
+
     } @empty {
     <p>No hay imágenes</p>
     }
   </main>
   }
-  } @placeholder {
-  <section
-    class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 justify-items-center items-center">
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-    <div class="skeleton w-full h-full aspect-square object-cover rounded-2xl"></div>
-  </section>
-  }
-
 </div>
