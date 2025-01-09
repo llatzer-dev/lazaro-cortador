@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ColeccionService } from '../../services/coleccion.service';
 import { Coleccion } from '@app/core/models/coleccion.model';
 import { Observable, of, takeUntil, tap } from 'rxjs';
@@ -14,7 +8,6 @@ import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.servic
 @Component({
   selector: 'app-colecciones',
   imports: [AsyncPipe, NgOptimizedImage],
-  providers: [AutoDestroyService],
   templateUrl: './colecciones.component.html',
   styleUrl: './colecciones.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Servicio } from '@app/core/models/servicio.model';
 import { ServiciosService } from '../../services/servicios.service';
 import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.service';
@@ -18,6 +18,7 @@ import { EmailData } from '@app/core/models/email.model';
   providers: [AutoDestroyService],
   templateUrl: './servicio.component.html',
   styleUrl: './servicio.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServicioComponent {
   public servicio = input.required<Servicio>();
@@ -113,7 +114,7 @@ export class ServicioComponent {
               const difference =
                 newValues[controlName] - prevValues[controlName];
               if (difference !== 0) {
-                console.log('Diferencia: ', difference);
+                // console.log('Diferencia: ', difference);
                 this.serviciosService.updateServiciosPrice(
                   difference,
                   caracteristicaLabelId

@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
 
 const AppRoutes = {
-  HOME: 'home/',
+  HOME: 'home',
 };
 
 export const routes: Routes = [

@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Specify the host for SEO purposes
-Host: https://lazarortega.com
-
 # Sitemap location
 Sitemap: https://lazarortega.com/sitemap.xml
