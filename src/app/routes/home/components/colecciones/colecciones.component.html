@@ -1,5 +1,3 @@
-@let colecciones = colecciones$ | async;
-
 <div>
   <!-- <header>
     <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
@@ -65,22 +63,14 @@
   <br>
   <br><br><br><br><br><br><br><br><br><br>
 
-  @if (colecciones) {
+  @if (colecciones()) {
   <header>
     <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
       Trabajos Realizados
     </h2>
   </header>
 
-  <main class="pswp-gallery lg:mx-auto mx-4 mb-20 " id="gallery--getting-started" #masonryGallery>
-    @for (coleccion of colecciones.slice(0, 14); track coleccion.id) {
-    <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
-      [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
-      <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" [width]="coleccion.width"
-        [height]="coleccion.height" />
-    </a>
-    }
-  </main>
+  <app-masonry [colecciones]="colecciones()" />
 
   <div class="text-center mt-10">
     <a routerLink="/gallery">

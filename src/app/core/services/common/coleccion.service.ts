@@ -50,4 +50,10 @@ export class ColeccionService {
   getColecciones(): Observable<Coleccion[]> {
     return this.coleccionesSubject.asObservable();
   }
+
+  getPrimerasColecciones(): Observable<Coleccion[]> {
+    return this.coleccionesSubject
+      .asObservable()
+      .pipe(map((colecciones) => colecciones.slice(0, 14)));
+  }
 }
