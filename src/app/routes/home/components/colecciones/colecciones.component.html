@@ -69,7 +69,7 @@
     @for (coleccion of colecciones; track coleccion.id) {
     <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
       [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
-      <img [src]="coleccion.imgUrl" class="rounded-2xl" />
+      <img [src]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" />
     </a>
     }
   </div>

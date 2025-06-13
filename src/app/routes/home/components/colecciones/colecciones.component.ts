@@ -48,7 +48,37 @@ export class ColeccionesComponent
         const lightbox = new PhotoSwipeLightbox({
           gallery: '#gallery--getting-started',
           children: 'a',
+
+          closeTitle: 'Cerrar',
+          zoomTitle: 'Enfocar la foto',
+          arrowPrevTitle: 'Ir a la anterior foto',
+          arrowNextTitle: 'Ir a la siguiente foto',
+          errorMsg: 'La foto no se ha podido cargar',
+          indexIndicatorSep: ' de ',
+
+          wheelToZoom: true,
+
           pswpModule: PhotoSwipe,
+        });
+
+        // 👇 REGISTRO DE CAPTION
+        lightbox.on('uiRegister', () => {
+          lightbox.pswp.ui.registerElement({
+            name: 'custom-caption',
+            order: 9,
+            isButton: false,
+            appendTo: 'root',
+            html: '',
+            onInit: (el: any, pswp: any) => {
+              lightbox.pswp.on('change', () => {
+                const currSlideElement = lightbox.pswp.currSlide?.data?.element;
+                const altText =
+                  currSlideElement?.querySelector('img')?.getAttribute('alt') ||
+                  '';
+                el.innerHTML = altText;
+              });
+            },
+          });
         });
 
         lightbox.init();
