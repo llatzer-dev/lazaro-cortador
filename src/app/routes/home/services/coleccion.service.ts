@@ -22,12 +22,18 @@ export class ColeccionService {
       .get<Coleccion[]>(this.JSON_PATH)
       .pipe(
         map((colecciones) => {
-          const coleccionesConPath = colecciones.map((c, i) => ({
-            ...c,
-            imgUrl: `${this.IMG_PATH}/${c.imgUrl}`,
-            alt: `${c.alt} ${i + 1}`,
-          }));
-          return coleccionesConPath;
+          return colecciones.map((c, i) => {
+            const coleccionConPath: any = {
+              ...c,
+              imgUrl: `${this.IMG_PATH}/${c.imgUrl}`,
+            };
+
+            if (c.alt && c.alt.trim()) {
+              coleccionConPath.alt = `${c.alt} ${i + 1}`;
+            }
+
+            return coleccionConPath;
+          });
         })
       )
       .subscribe({

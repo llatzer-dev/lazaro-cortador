@@ -1,13 +1,13 @@
 @let colecciones = colecciones$ | async;
 
 <div>
-  <header>
+  <!-- <header>
     <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
       Trabajos Realizados
     </h2>
-  </header>
+  </header> -->
 
-  @if (colecciones) {
+  <!-- @if (colecciones) {
   <main
     class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 justify-items-center items-center">
     @for (coleccion of colecciones; track coleccion.id) {
@@ -23,12 +23,12 @@
     <p>No hay imágenes</p>
     }
   </main>
-  }
+  } -->
 
   <br>
   <br><br><br><br><br><br><br><br><br><br>
 
-  <main class="">
+  <!-- <main class="">
 
     <div
       class="pswp-gallery mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 justify-items-center items-center"
@@ -41,12 +41,12 @@
       }
     </div>
 
-  </main>
+  </main> -->
 
   <br>
   <br><br><br><br><br><br><br><br><br><br>
 
-  <main class="">
+  <!-- <main class="">
 
     <div
       class="pswp-gallery mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 justify-items-center items-center"
@@ -60,54 +60,27 @@
       }
     </div>
 
-  </main>
+  </main> -->
 
   <br>
   <br><br><br><br><br><br><br><br><br><br>
 
-  <div class="pswp-gallery lg:mx-auto mx-4 py-20 " id="gallery--getting-started" #masonryGallery>
+  @if (colecciones) {
+  <header>
+    <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
+      Trabajos Realizados
+    </h2>
+  </header>
+
+  <main class="pswp-gallery lg:mx-auto mx-4 py-20 " id="gallery--getting-started" #masonryGallery>
     @for (coleccion of colecciones; track coleccion.id) {
     <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
       [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
-      <img [src]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" />
+      <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" [width]="coleccion.width"
+        [height]="coleccion.height" />
     </a>
     }
-  </div>
-
-
-
-  <main>
-    <div class="pswp-gallery pswp-gallery--single-column" id="gallery--getting-started">
-      <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg" data-pswp-width="1669"
-        data-pswp-height="2500" target="_blank">
-        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" alt="" />
-      </a>
-      <!-- cropped thumbnail: -->
-      <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-2500.jpg" data-pswp-width="1875"
-        data-pswp-height="2500" data-cropped="true" target="_blank">
-        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg" alt="" />
-        Cropped
-      </a>
-      <!-- data-pswp-src with custom URL in href -->
-      <a href="https://unsplash.com"
-        data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg" data-pswp-width="2500"
-        data-pswp-height="1666" target="_blank">
-        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" alt="" />
-      </a>
-      <!-- Without thumbnail: -->
-      <a href="http://example.com"
-        data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-2500.jpg" data-pswp-width="2500"
-        data-pswp-height="1668" target="_blank">
-        No thumbnail
-      </a>
-      <!-- wrapped with any element: -->
-      <div>
-        <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg" data-pswp-width="2500"
-          data-pswp-height="1667" target="_blank">
-          <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg" alt="" />
-        </a>
-      </div>
-    </div>
   </main>
+  }
 
 </div>

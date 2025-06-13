@@ -61,7 +61,7 @@ export class ColeccionesComponent
           pswpModule: PhotoSwipe,
         });
 
-        // 👇 REGISTRO DE CAPTION
+        // Mensaje personalizado por imagen
         lightbox.on('uiRegister', () => {
           lightbox.pswp.ui.registerElement({
             name: 'custom-caption',
@@ -70,12 +70,23 @@ export class ColeccionesComponent
             appendTo: 'root',
             html: '',
             onInit: (el: any, pswp: any) => {
+              // Inicialmente oculto
+              el.style.opacity = '0';
+
               lightbox.pswp.on('change', () => {
                 const currSlideElement = lightbox.pswp.currSlide?.data?.element;
                 const altText =
-                  currSlideElement?.querySelector('img')?.getAttribute('alt') ||
-                  '';
-                el.innerHTML = altText;
+                  currSlideElement
+                    ?.querySelector('img')
+                    ?.getAttribute('alt')
+                    ?.trim() || '';
+
+                if (altText) {
+                  el.innerHTML = altText;
+                  el.style.opacity = '1';
+                } else {
+                  el.style.opacity = '0';
+                }
               });
             },
           });

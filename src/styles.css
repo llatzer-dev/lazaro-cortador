@@ -38,5 +38,4 @@ body {
   transform: translateX(-50%);
   pointer-events: none;
   z-index: 1000;
-  transition: opacity 0.3s ease;
 }
