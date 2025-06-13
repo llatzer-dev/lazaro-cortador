@@ -1,0 +1,28 @@
+@let colecciones = colecciones$ | async;
+<p>gallery works!</p>
+
+@if (colecciones) {
+<header>
+  <h2 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
+    Trabajos Realizados
+  </h2>
+</header>
+
+<main class="pswp-gallery lg:mx-auto mx-4 mb-20 " id="gallery--getting-started" #masonryGallery>
+  @for (coleccion of colecciones; track coleccion.id) {
+  <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
+    [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
+    <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" [width]="coleccion.width"
+      [height]="coleccion.height" />
+  </a>
+  }
+</main>
+
+<div class="text-center mt-10 mb-24">
+  <a routerLink="/home">
+    <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary/80 transition uppercase">
+      VOLVER
+    </button>
+  </a>
+</div>
+}

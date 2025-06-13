@@ -72,8 +72,8 @@
     </h2>
   </header>
 
-  <main class="pswp-gallery lg:mx-auto mx-4 py-20 " id="gallery--getting-started" #masonryGallery>
-    @for (coleccion of colecciones; track coleccion.id) {
+  <main class="pswp-gallery lg:mx-auto mx-4 mb-20 " id="gallery--getting-started" #masonryGallery>
+    @for (coleccion of colecciones.slice(0, 14); track coleccion.id) {
     <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
       [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
       <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" [width]="coleccion.width"
@@ -81,6 +81,14 @@
     </a>
     }
   </main>
+
+  <div class="text-center mt-10">
+    <a routerLink="/gallery">
+      <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary/80 transition uppercase">
+        Ver más
+      </button>
+    </a>
+  </div>
   }
 
 </div>

@@ -1,36 +1,29 @@
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import {
-  AfterContentInit,
-  AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   inject,
   NgZone,
-  OnInit,
   ViewChild,
 } from '@angular/core';
-import { ColeccionService } from '../../../../core/services/common/coleccion.service';
+import { RouterLink } from '@angular/router';
 import { Coleccion } from '@app/core/models/coleccion.model';
-import { Observable, of, takeUntil } from 'rxjs';
-import { AsyncPipe, NgOptimizedImage } from '@angular/common';
+import { ColeccionService } from '@app/core/services/common/coleccion.service';
 import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.service';
+import { CheckPlatformUtility } from '@app/core/services/utils/check-platform.utility';
+import { Observable, of, takeUntil } from 'rxjs';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import PhotoSwipe from 'photoswipe';
-import { CheckPlatformUtility } from '@app/core/services/utils/check-platform.utility';
-// @ts-ignore
-import Masonry from 'masonry-layout';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-colecciones',
+  selector: 'app-gallery',
+  standalone: true,
   imports: [AsyncPipe, NgOptimizedImage, RouterLink],
-  templateUrl: './colecciones.component.html',
-  styleUrl: './colecciones.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [AutoDestroyService],
+  templateUrl: './gallery.component.html',
+  styleUrl: './gallery.component.css',
 })
-export class ColeccionesComponent
-  implements OnInit, AfterContentInit, AfterViewInit
-{
+export class GalleryComponent {
   colecciones$: Observable<Coleccion[]> = of([]);
   private checkPlatform = inject(CheckPlatformUtility);
 
