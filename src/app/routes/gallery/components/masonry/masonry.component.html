@@ -1,8 +1,9 @@
 @if (colecciones().length > 0) {
 <main class="pswp-gallery lg:mx-auto mx-4 mb-20 " id="gallery--getting-started" #masonryGallery>
   @for (coleccion of colecciones(); track coleccion.id) {
-  <a class="grid-item block w-[200px] mb-5 hover:scale-105 transition-transform" [href]="coleccion.imgUrl"
-    [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height" target="_blank">
+  <a class="grid-item block w-full md:w-[200px] lg:w-[200px] mb-5 hover:scale-105 transition-transform"
+    [href]="coleccion.imgUrl" [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height"
+    target="_blank">
     <img [ngSrc]="coleccion.imgUrl" [alt]="coleccion.alt" class="rounded-2xl" [width]="coleccion.width"
       [height]="coleccion.height" />
   </a>

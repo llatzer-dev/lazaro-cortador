@@ -5,9 +5,7 @@ import {
   ElementRef,
   inject,
   input,
-  InputSignal,
   NgZone,
-  Signal,
   ViewChild,
 } from '@angular/core';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
