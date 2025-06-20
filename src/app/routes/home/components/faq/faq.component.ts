@@ -15,6 +15,7 @@ import { faqSchema } from './faq.schema';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaqComponent implements OnInit {
+  // TODO: hacer inject()
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
