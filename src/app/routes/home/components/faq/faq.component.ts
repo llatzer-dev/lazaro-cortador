@@ -18,9 +18,17 @@ export class FaqComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
-    const script = this.document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(faqSchema);
-    this.document.head.appendChild(script);
+    // Busca un script ya insertado con un identificador único
+    const existing = this.document.head.querySelector(
+      'script[type="application/ld+json"][data-faq="true"]'
+    );
+
+    if (!existing) {
+      const script = this.document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-faq', 'true'); // etiqueta personalizada para identificarlo
+      script.text = JSON.stringify(faqSchema);
+      this.document.head.appendChild(script);
+    }
   }
 }
