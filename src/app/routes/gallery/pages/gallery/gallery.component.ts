@@ -25,7 +25,7 @@ export class GalleryComponent {
 
   ngOnInit(): void {
     this.seoService.setBasicSeo({
-      title: 'Galería de Jamones - Lázaro Ortega',
+      title: 'Galería de Cortes de Jamón - Lázaro Ortega',
       description:
         'Explora la galería de jamones cortados profesionalmente por Lázaro Ortega en Alicante.',
       keywords:
