@@ -1,4 +1,5 @@
-import { inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { SeoBasicData } from '@app/core/models/seo.model';
 
@@ -8,8 +9,13 @@ import { SeoBasicData } from '@app/core/models/seo.model';
 export class SeoService {
   readonly #meta = inject(Meta);
   readonly #title = inject(Title);
+  readonly #document = inject(DOCUMENT);
+  readonly #rendererFactory = inject(RendererFactory2);
+  readonly #renderer: Renderer2;
 
-  constructor() {}
+  constructor() {
+    this.#renderer = this.#rendererFactory.createRenderer(null, null);
+  }
 
   setTitle(title: string): void {
     this.#title.setTitle(title);
@@ -28,6 +34,23 @@ export class SeoService {
     this.setDescription(description);
     if (keywords) {
       this.setKeywords(keywords);
+    }
+  }
+
+  updateCanonicalLink(newCanonicalUrl: string) {
+    const existingLink: HTMLLinkElement | null = this.#document.querySelector(
+      'link[rel="canonical"]'
+    );
+
+    if (existingLink) {
+      this.#renderer.setAttribute(existingLink, 'href', newCanonicalUrl);
+      console.log('Canonical tag updated:', existingLink);
+    } else {
+      const link = this.#renderer.createElement('link');
+      this.#renderer.setAttribute(link, 'rel', 'canonical');
+      this.#renderer.setAttribute(link, 'href', newCanonicalUrl);
+      this.#renderer.appendChild(this.#document.head, link);
+      console.log('Canonical tag created:', link);
     }
   }
 }

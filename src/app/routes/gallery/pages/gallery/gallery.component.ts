@@ -16,12 +16,16 @@ import { SeoService } from '@app/core/services/common/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GalleryComponent {
+  private readonly linkCanonical = 'https://lazarortega.com/gallery/';
+
   private readonly coleccionService = inject(ColeccionService);
   private readonly seoService = inject(SeoService);
 
   readonly colecciones = toSignal(this.coleccionService.getColecciones(), {
     initialValue: [],
   });
+
+  constructor() {}
 
   ngOnInit(): void {
     this.seoService.setBasicSeo({
@@ -31,5 +35,7 @@ export class GalleryComponent {
       keywords:
         'jamón, corte, galería de fotos, Lázaro Ortega Izquierdo, cortador de jamón profesional, cortador en Alicante',
     });
+
+    // this.seoService.updateCanonicalLink(this.linkCanonical);
   }
 }
