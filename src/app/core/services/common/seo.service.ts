@@ -44,13 +44,11 @@ export class SeoService {
 
     if (existingLink) {
       this.#renderer.setAttribute(existingLink, 'href', newCanonicalUrl);
-      console.log('Canonical tag updated:', existingLink);
     } else {
       const link = this.#renderer.createElement('link');
       this.#renderer.setAttribute(link, 'rel', 'canonical');
       this.#renderer.setAttribute(link, 'href', newCanonicalUrl);
       this.#renderer.appendChild(this.#document.head, link);
-      console.log('Canonical tag created:', link);
     }
   }
 }
