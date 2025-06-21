@@ -25,7 +25,7 @@ import { SeoService } from '@app/core/services/common/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  private readonly linkCanonical = 'https://lazarortega.com';
+  private readonly linkCanonical = 'https://lazarortega.com/';
 
   private readonly seoService = inject(SeoService);
 
