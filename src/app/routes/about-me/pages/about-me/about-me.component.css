@@ -1,0 +1,8 @@
+.romboide {
+  clip-path: polygon(
+    20% 0%,
+    /* top-left */ 100% 0%,
+    /* top-right */ 80% 100%,
+    /* bottom-right */ 0% 100% /* bottom-left */
+  );
+}

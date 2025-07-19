@@ -21,7 +21,8 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@home/*": ["src/app/routes/home/*"],
-      "@gallery/*": ["src/app/routes/gallery/*"]
+      "@gallery/*": ["src/app/routes/gallery/*"],
+      "@about-me/*": ["src/app/routes/about-me/*"]
     }
   },
   "angularCompilerOptions": {
