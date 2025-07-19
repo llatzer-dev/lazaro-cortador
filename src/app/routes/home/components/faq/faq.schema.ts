@@ -1,6 +1,7 @@
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  name: 'Dudas Frecuentes sobre el Corte de Jamón',
   mainEntity: [
     {
       '@type': 'Question',

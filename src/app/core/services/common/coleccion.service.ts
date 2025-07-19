@@ -29,7 +29,7 @@ export class ColeccionService {
             };
 
             if (c.alt && c.alt.trim()) {
-              coleccionConPath.alt = `${c.alt} ${i + 1}`;
+              coleccionConPath.alt = `${c.alt} - ${i + 1}`;
             }
 
             return coleccionConPath;
