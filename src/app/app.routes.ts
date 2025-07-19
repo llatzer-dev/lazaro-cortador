@@ -4,6 +4,7 @@ import { LayoutComponent } from './core/layout/layout.component';
 const AppRoutes = {
   HOME: '',
   GALLERY: 'gallery',
+  ABOUT_ME: 'sobre-mi',
 };
 
 export const routes: Routes = [
@@ -23,6 +24,13 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./routes/gallery/gallery.routes').then(
             (m) => m.GALLERY_ROUTES
+          ),
+      },
+      {
+        path: AppRoutes.ABOUT_ME,
+        loadChildren: () =>
+          import('./routes/about-me/about-me.routes').then(
+            (m) => m.ABOUT_ME_ROUTES
           ),
       },
     ],

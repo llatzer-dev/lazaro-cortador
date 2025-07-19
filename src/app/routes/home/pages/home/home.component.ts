@@ -10,6 +10,7 @@ import { ServiciosComponent } from '../../components/servicios/servicios.compone
 import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.service';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { SeoService } from '@app/core/services/common/seo.service';
+import { AboutMeComponent } from '../../../about-me/pages/about-me/about-me.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { SeoService } from '@app/core/services/common/seo.service';
     ColeccionesComponent,
     ServiciosComponent,
     FaqComponent,
+    AboutMeComponent,
   ],
   providers: [AutoDestroyService],
   templateUrl: './home.component.html',
