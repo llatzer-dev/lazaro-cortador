@@ -1,0 +1,67 @@
+<!-- NAV ESCRITORIO -->
+<nav class="rounded-2xl mx-4 mt-6 mb-12 hidden md:block bg-primary text-white">
+  <div class="py-4 px-6 flex items-center justify-between">
+    <!-- Izquierda: Logo y nombre -->
+    <a href="/" class="flex items-center gap-x-4 flex-1 whitespace-nowrap">
+      <img src="img/favicon.webp" alt="Logo Lázaro Ortega" class="w-10 h-10 rounded-2xl" />
+      <span class="text-2xl font-bold tracking-wide">Lázaro Ortega</span>
+    </a>
+
+    <!-- Centro: Menú y Nosotros -->
+    <div class="flex justify-center gap-x-6 flex-1">
+      <a href="/gallery"
+        class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
+        Galer&#237;a
+      </a>
+      <a href="/sobre-mi"
+        class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
+        Sobre m&#237;
+      </a>
+    </div>
+
+    <!-- Derecha: Reserva -->
+    <div class="flex justify-end flex-1">
+      <a href="https://wa.me/qr/ZQX2NZV7W66QN1" target="_blank" rel="noopener"
+        class="block px-6 py-3 uppercase text-lg rounded-xl bg-whatsapp text-white font-semibold transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+        CONTACTAR
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- NAV MÓVIL -->
+<div class="md:hidden bg-primary text-white px-6 py-4 flex justify-between items-center">
+
+  <!-- Botón menú -->
+  <button (click)="toggleMenu()" aria-label="Abrir menú" type="button" class="relative w-6 h-4">
+    @if (!menuOpen()) {
+    <!-- Icono hamburguesa -->
+    <span class="block w-6 h-0.5 bg-white absolute top-0 left-0"></span>
+    <span class="block w-6 h-0.5 bg-white absolute top-1/2 left-0 transform -translate-y-1/2"></span>
+    <span class="block w-6 h-0.5 bg-white absolute bottom-0 left-0"></span>
+    } @else {
+    <!-- Icono X -->
+    <span
+      class="block w-6 h-0.5 bg-white absolute top-1/2 left-0 transform -translate-y-1/2 rotate-45 transition-transform duration-300">
+    </span>
+    <span
+      class="block w-6 h-0.5 bg-white absolute top-1/2 left-0 transform -translate-y-1/2 -rotate-45 transition-transform duration-300">
+    </span>
+    }
+  </button>
+
+  <a href="https://wa.me/qr/ZQX2NZV7W66QN1" class="rounded-xl bg-whatsapp px-4 py-2 text-xl font-semibold uppercase">
+    CONTACTAR
+  </a>
+</div>
+
+<!-- Menú desplegable móvil -->
+<div
+  class="md:hidden bg-primary text-white flex flex-col items-center gap-4 px-6 py-4 text-lg uppercase text-center overflow-hidden max-h-0 opacity-0 transition-all duration-300"
+  [class.max-h-96]="menuOpen()" [class.opacity-100]="menuOpen()">
+  <a (click)="menuOpen.set(false)" href="/" class="hover:underline w-full border-b border-white/30 py-2">Inicio</a>
+  <a (click)="menuOpen.set(false)" href="/gallery"
+    class="hover:underline w-full border-b border-white/30 py-2">Galer&#237;a</a>
+  <a (click)="menuOpen.set(false)" href="/sobre-mi" class="hover:underline w-full border-b border-white/30 py-2">Sobre
+    M&#237;</a>
+</div>
