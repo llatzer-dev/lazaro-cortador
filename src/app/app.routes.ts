@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
 
 const AppRoutes = {
-  HOME: 'home',
+  HOME: '',
+  GALLERY: 'gallery',
 };
 
 export const routes: Routes = [
@@ -12,13 +13,17 @@ export const routes: Routes = [
     children: [
       {
         path: AppRoutes.HOME,
-        loadChildren: () =>
-          import('./routes/home/home.routes').then((m) => m.HOME_ROUTES),
+        loadComponent: () =>
+          import('./routes/home/pages/home/home.component').then(
+            (x) => x.HomeComponent
+          ),
       },
       {
-        path: '',
-        redirectTo: AppRoutes.HOME,
-        pathMatch: 'full',
+        path: AppRoutes.GALLERY,
+        loadChildren: () =>
+          import('./routes/gallery/gallery.routes').then(
+            (m) => m.GALLERY_ROUTES
+          ),
       },
     ],
   },

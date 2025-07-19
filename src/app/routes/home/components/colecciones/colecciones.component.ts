@@ -1,28 +1,23 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ColeccionService } from '../../services/coleccion.service';
-import { Coleccion } from '@app/core/models/coleccion.model';
-import { Observable, of, takeUntil, tap } from 'rxjs';
-import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { AutoDestroyService } from '@app/core/services/utils/auto-destroy.service';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ColeccionService } from '../../../../core/services/common/coleccion.service';
+import { RouterLink } from '@angular/router';
+import { MasonryComponent } from '../../../gallery/components/masonry/masonry.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-colecciones',
-  imports: [AsyncPipe, NgOptimizedImage],
+  imports: [RouterLink, MasonryComponent],
   templateUrl: './colecciones.component.html',
   styleUrl: './colecciones.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColeccionesComponent implements OnInit {
-  colecciones$: Observable<Coleccion[]> = of([]);
+export class ColeccionesComponent {
+  private readonly coleccionService = inject(ColeccionService);
 
-  constructor(
-    private readonly coleccionService: ColeccionService,
-    private readonly destroy$: AutoDestroyService
-  ) {}
-
-  ngOnInit(): void {
-    this.colecciones$ = this.coleccionService
-      .getColecciones()
-      .pipe(takeUntil(this.destroy$));
-  }
+  readonly colecciones = toSignal(
+    this.coleccionService.getPrimerasColecciones(),
+    {
+      initialValue: [],
+    }
+  );
 }

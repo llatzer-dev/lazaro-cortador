@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"],
-      "@home/*": ["src/app/routes/home/*"]
+      "@home/*": ["src/app/routes/home/*"],
+      "@gallery/*": ["src/app/routes/gallery/*"]
     }
   },
   "angularCompilerOptions": {
