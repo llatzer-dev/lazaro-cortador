@@ -11,7 +11,7 @@
 
       <!-- Centro: Menú -->
       <div class="flex justify-center gap-x-6 flex-1">
-        <a routerLink="/gallery" routerLinkActive="bg-white text-black"
+        <a routerLink="/galeria-fotos" routerLinkActive="bg-white text-black"
           class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
           Galería
         </a>
@@ -76,7 +76,7 @@
   [class.max-h-96]="menuOpen()" [class.opacity-100]="menuOpen()">
   <a (click)="menuOpen.set(false)" routerLink="/" routerLinkActive="underline"
     [routerLinkActiveOptions]="{ exact: true }" class="w-full border-b border-white/30 py-2">Inicio</a>
-  <a (click)="menuOpen.set(false)" routerLink="/gallery" routerLinkActive="underline"
+  <a (click)="menuOpen.set(false)" routerLink="/galeria-fotos" routerLinkActive="underline"
     class="w-full border-b border-white/30 py-2">Galería</a>
   <a (click)="menuOpen.set(false)" routerLink="/sobre-mi" routerLinkActive="underline"
     class="w-full border-b border-white/30 py-2">Sobre
