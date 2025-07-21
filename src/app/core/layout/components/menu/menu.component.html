@@ -3,18 +3,19 @@
   <div class="max-w-4xl mx-auto">
     <div class="py-2 px-4 flex items-center justify-between">
       <!-- Izquierda: Logo y nombre -->
-      <a href="/" class="hover:underline flex items-center gap-x-4 flex-1 whitespace-nowrap">
+      <a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:underline flex items-center gap-x-4 flex-1 whitespace-nowrap">
         <img src="img/favicon.webp" alt="Logo Lázaro Ortega" class="w-10 h-10 rounded-2xl" />
         <span class="text-2xl font-bold tracking-wide">Lázaro Ortega</span>
       </a>
 
       <!-- Centro: Menú -->
       <div class="flex justify-center gap-x-6 flex-1">
-        <a href="/gallery"
+        <a routerLink="/gallery" routerLinkActive="bg-white text-black"
           class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
           Galería
         </a>
-        <a href="/sobre-mi"
+        <a routerLink="/sobre-mi" routerLinkActive="bg-white text-black"
           class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
           Sobre mí
         </a>
@@ -70,13 +71,14 @@
 </div>
 
 <!-- Menú desplegable móvil -->
-<!-- Menú desplegable móvil -->
 <div
   class="md:hidden fixed top-[64px] left-0 w-full z-40 bg-primary text-white flex flex-col items-center gap-4 px-6 py-4 text-lg uppercase text-center overflow-hidden max-h-0 opacity-0 transition-all duration-300"
   [class.max-h-96]="menuOpen()" [class.opacity-100]="menuOpen()">
-  <a (click)="menuOpen.set(false)" href="/" class="hover:underline w-full border-b border-white/30 py-2">Inicio</a>
-  <a (click)="menuOpen.set(false)" href="/gallery"
-    class="hover:underline w-full border-b border-white/30 py-2">Galería</a>
-  <a (click)="menuOpen.set(false)" href="/sobre-mi" class="hover:underline w-full border-b border-white/30 py-2">Sobre
+  <a (click)="menuOpen.set(false)" routerLink="/" routerLinkActive="underline"
+    [routerLinkActiveOptions]="{ exact: true }" class="w-full border-b border-white/30 py-2">Inicio</a>
+  <a (click)="menuOpen.set(false)" routerLink="/gallery" routerLinkActive="underline"
+    class="w-full border-b border-white/30 py-2">Galería</a>
+  <a (click)="menuOpen.set(false)" routerLink="/sobre-mi" routerLinkActive="underline"
+    class="w-full border-b border-white/30 py-2">Sobre
     Mí</a>
 </div>
