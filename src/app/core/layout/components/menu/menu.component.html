@@ -1,7 +1,7 @@
 <!-- NAV ESCRITORIO -->
 <nav class="hidden md:block fixed w-full z-50 bg-primary text-white">
   <div class="max-w-4xl mx-auto">
-    <div class="py-2 px-4 flex items-center justify-between">
+    <div class="py-2 flex items-center justify-between">
       <!-- Izquierda: Logo y nombre -->
       <a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }"
         class="hover:underline flex items-center gap-x-4 flex-1 whitespace-nowrap">
@@ -11,11 +11,11 @@
 
       <!-- Centro: Menú -->
       <div class="flex justify-center gap-x-6 flex-1">
-        <a routerLink="/galeria-fotos" routerLinkActive="bg-white text-black"
+        <a routerLink="/galeria-fotos" routerLinkActive="active-link"
           class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
           Galería
         </a>
-        <a routerLink="/sobre-mi" routerLinkActive="bg-white text-black"
+        <a routerLink="/sobre-mi" routerLinkActive="active-link"
           class="px-4 py-2 rounded border border-white text-white text-lg uppercase hover:bg-white hover:text-black transition">
           Sobre mí
         </a>
