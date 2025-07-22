@@ -1,5 +1,5 @@
 @if (colecciones().length > 0) {
-<main class="pswp-gallery lg:mx-auto mx-4 mb-20 " id="gallery--getting-started" #masonryGallery>
+<main class="pswp-gallery lg:mx-auto mb-20 " id="gallery--getting-started" #masonryGallery>
   @for (coleccion of colecciones(); track coleccion.id) {
   <a class="grid-item block w-full md:w-[200px] lg:w-[200px] mb-5 hover:scale-105 transition-transform"
     [href]="coleccion.imgUrl" [attr.data-pswp-width]="coleccion.width" [attr.data-pswp-height]="coleccion.height"

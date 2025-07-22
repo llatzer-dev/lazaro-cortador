@@ -3,7 +3,7 @@ import { LayoutComponent } from './core/layout/layout.component';
 
 const AppRoutes = {
   HOME: '',
-  GALLERY: 'gallery',
+  GALLERY: 'galeria-fotos',
   ABOUT_ME: 'sobre-mi',
 };
 

@@ -1,6 +1,6 @@
 @if (colecciones()) {
 <header>
-  <h1 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center">
+  <h1 class="text-primary text-3xl md:text-5xl my-8 md:my-12 font-bold text-center text-balance">
     Galería de fotos sobre Cortes de Jamón
   </h1>
 </header>
@@ -13,9 +13,9 @@
 <app-masonry [colecciones]="colecciones()" />
 
 <div class="text-center mt-10 mb-24">
-  <a routerLink="/home">
+  <a routerLink="/">
     <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary/80 transition uppercase">
-      VOLVER
+      INICIO
     </button>
   </a>
 </div>

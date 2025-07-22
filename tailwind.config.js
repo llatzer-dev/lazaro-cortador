@@ -13,6 +13,7 @@ module.exports = {
         "primary-white": "#fff",
         "secondary-white": "#ffffffb3",
         skeleton: "#E2E8F0",
+        whatsapp: "#25D366",
       },
     },
   },
