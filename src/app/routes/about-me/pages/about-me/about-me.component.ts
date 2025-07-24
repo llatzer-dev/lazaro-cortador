@@ -24,7 +24,6 @@ export class AboutMeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.isMainPage());
     if (!this.isMainPage()) {
       this.seoService.setBasicSeo({
         title: 'Sobre mí - Lázaro Ortega',

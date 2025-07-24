@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
+import { LocalComponent } from './routes/local/page/local/local.component';
+import { LocalidadGuard } from './core/guards/localidad.guard';
 
 const AppRoutes = {
   HOME: '',
@@ -32,6 +34,11 @@ export const routes: Routes = [
           import('./routes/about-me/about-me.routes').then(
             (m) => m.ABOUT_ME_ROUTES
           ),
+      },
+      {
+        path: ':localidad',
+        component: LocalComponent,
+        canActivate: [LocalidadGuard],
       },
     ],
   },
