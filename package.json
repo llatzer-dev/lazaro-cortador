@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "generate-sitemap": "tsc -p tsconfig.scripts.json && node scripts/generate-sitemap.js",
+    "build": "npm run generate-sitemap && ng build",
+    "old:build": "ng build && node scripts/generate-sitemap.ts",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:lazaro-cortador": "node dist/lazaro-cortador/server/server.mjs"

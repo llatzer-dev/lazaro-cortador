@@ -1,3 +1,4 @@
+import { LOCALIDADES_VALIDAS } from '@app/constants/local-seo-cities';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 
@@ -5,11 +6,7 @@ import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LocalidadGuard implements CanActivate {
-  localidadesValidas = [
-    'cortador-de-jamon-alicante',
-    'cortador-de-jamon-calpe',
-    'cortador-de-jamon-javea',
-  ];
+  localidadesValidas = LOCALIDADES_VALIDAS;
 
   constructor(private router: Router) {}
 

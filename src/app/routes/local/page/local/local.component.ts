@@ -1,10 +1,18 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SeoService } from '@app/core/services/common/seo.service';
 
 @Component({
   selector: 'app-local',
+  imports: [RouterLink],
   templateUrl: './local.component.html',
   styleUrl: './local.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LocalComponent {
   readonly localidad = input('', {
@@ -23,7 +31,7 @@ export class LocalComponent {
     this.seoService.setBasicSeo({
       title: `Cortador de jamón en ${this.localidad()} - Lázaro Ortega`,
       description: `Servicio profesional de corte de jamón en ${this.localidad()}. Lázaro Ortega, cortador con más de 15 años de experiencia, disponible para bodas, eventos y celebraciones.`,
-      keywords: `cortador de jamón en ${this.localidad()}, jamón ibérico, bodas en ${this.localidad()}, eventos, profesional, Alicante, Lázaro Ortega Izquierdo, servicio de corte, cortador jamón`,
+      keywords: `cortador de jamón en ${this.localidad()}, jamón ibérico, bodas en ${this.localidad()}, eventos, profesional, Alicante provincia, Lázaro Ortega Izquierdo, servicio de corte, cortador jamón`,
     });
   }
 }
