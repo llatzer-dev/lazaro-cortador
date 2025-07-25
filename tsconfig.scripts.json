@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "outDir": "./scripts",
+    "rootDir": "./src/app/constants",
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": ["src/app/constants/local-seo-cities.ts"]
+}

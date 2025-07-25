@@ -1,0 +1,85 @@
+<div class="flex flex-col gap-16">
+
+  <!-- Hero con imagen y texto -->
+  <section>
+    <div class="flex flex-col gap-8 bg-white md:flex-row md:gap-12">
+      <header class="flex flex-col items-center gap-4 md:gap-2">
+        <img src="img/lazaro-ortega/cuerpo.webp" alt="Lázaro Ortega Izquierdo cortador profesional de jamón"
+          class="w-40 aspect-[3/4] object-cover rounded-2xl md:min-w-64 md:max-w-64">
+        <footer class="uppercase text-center text-lg md:text-sm text-primary-black">
+          Lázaro Ortega Izquierdo
+        </footer>
+      </header>
+      <main class="flex flex-col gap-4 justify-center text-center md:text-left">
+        <h1 class="text-3xl md:text-5xl text-primary font-bold">
+          Cortador de Jamón Profesional en <em>{{ localidad() }}</em>
+        </h1>
+        <h2 class="text-lg md:text-2xl text-tertiary-black">
+          <span class="font-bold">+15 años de experiencia</span> ofreciendo el arte del corte de jamón con pasión y
+          precisión
+        </h2>
+        <a routerLink="/" fragment="servicios"
+          class="w-full md:w-48 py-2 px-4 mt-6 text-center text-primary-white bg-secondary hover:bg-secondary-hover transition-colors duration-300 rounded-2xl">
+          Pedir Presupuesto
+        </a>
+      </main>
+    </div>
+  </section>
+
+  <!-- Beneficios del servicio -->
+  <section class="text-center">
+    <h2 class="text-2xl font-semibold mb-6 text-primary">¿Por qué contratar a Lázaro Ortega?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="p-6 rounded-xl border border-skeleton">
+        <h3 class="text-primary font-bold text-xl mb-2">+15 años de experiencia</h3>
+        <p class="text-balance text-secondary-black">
+          Amplia trayectoria cortando jamón en eventos de todo tipo, desde celebraciones íntimas hasta grandes
+          banquetes.
+        </p>
+      </div>
+      <div class="p-6 rounded-xl border border-skeleton">
+        <h3 class="text-primary font-bold text-xl mb-2">Presentación impecable</h3>
+        <p class="text-balance text-secondary-black">
+          Cada plato se monta con precisión y elegancia, cuidando hasta el último detalle para impresionar a tus
+          invitados.
+        </p>
+      </div>
+      <div class="p-6 rounded-xl border border-skeleton">
+        <h3 class="text-primary font-bold text-xl mb-2">Sabor y calidad</h3>
+        <p class="text-balance text-secondary-black">
+          Trabajo con jamones ibéricos de primera calidad, garantizando una experiencia gastronómica inolvidable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="text-center">
+    <h2 class="text-2xl font-semibold mb-6 text-primary">Ejemplos de trabajo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="overflow-hidden rounded-xl border border-skeleton">
+        <img src="img/colecciones/Fy2y5itXwAcgIBc.webp" alt="Plato de jamón ibérico" class="w-full h-60 object-cover">
+      </div>
+      <div class="overflow-hidden rounded-xl border border-skeleton">
+        <img src="img/colecciones/1.webp" alt="Corte de jamón en boda" class="w-full h-60 object-cover">
+      </div>
+      <div class="overflow-hidden rounded-xl border border-skeleton">
+        <img src="img/colecciones/5c942c8c-9cea-4b74-ac59-444a76545688.webp" alt="Presentación profesional"
+          class="w-full h-60 object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="mb-12 bg-primary text-primary-white text-center rounded-3xl py-12 px-4">
+    <h2 class="text-2xl font-semibold mb-4">¿Tienes un evento en {{ localidad() }}?</h2>
+    <p class="mb-6 text-lg max-w-xl mx-auto">
+      Haz que sea inolvidable con un cortador de jamón profesional. Reserva tu fecha con antelación.
+    </p>
+
+    <a routerLink="/" fragment="servicios" class="px-6 py-3 text-black font-bold rounded-xl bg-white">
+      Contacta ahora
+    </a>
+  </section>
+
+</div>

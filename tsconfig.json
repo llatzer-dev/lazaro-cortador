@@ -22,7 +22,8 @@
       "@app/*": ["src/app/*"],
       "@home/*": ["src/app/routes/home/*"],
       "@gallery/*": ["src/app/routes/gallery/*"],
-      "@about-me/*": ["src/app/routes/about-me/*"]
+      "@about-me/*": ["src/app/routes/about-me/*"],
+      "@events/*": ["src/app/routes/events/*"]
     }
   },
   "angularCompilerOptions": {
