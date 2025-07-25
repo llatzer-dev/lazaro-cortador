@@ -4,11 +4,14 @@ exports.LOCALIDADES_VALIDAS = void 0;
 const PREFIX_LOCAL = 'cortador-de-jamon';
 const SUFIX_LOCAL = [
     'calpe',
+    'altea',
+    'denia',
     'javea',
     'moraira',
     'benidorm',
     'aspe',
     'novelda',
     'elda',
+    'elche',
 ];
 exports.LOCALIDADES_VALIDAS = SUFIX_LOCAL.map((sufijo) => `${PREFIX_LOCAL}-${sufijo}`);

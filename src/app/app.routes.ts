@@ -7,6 +7,7 @@ const AppRoutes = {
   HOME: '',
   GALLERY: 'galeria-fotos',
   ABOUT_ME: 'sobre-mi',
+  EVENTS: 'cortador-de-jamon-eventos',
 };
 
 export const routes: Routes = [
@@ -34,6 +35,11 @@ export const routes: Routes = [
           import('./routes/about-me/about-me.routes').then(
             (m) => m.ABOUT_ME_ROUTES
           ),
+      },
+      {
+        path: AppRoutes.EVENTS,
+        loadChildren: () =>
+          import('./routes/events/events.routes').then((m) => m.EVENTS_ROUTES),
       },
       {
         path: ':localidad',
