@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     this.seoService.updateCanonicalLink(this.linkCanonical);
 
     this.seoService.setBasicSeo({
-      title: 'Cortador de Jamón Profesional - Lázaro Ortega',
+      title: 'Cortador de Jamón Profesional en Alicante - Lázaro Ortega',
       description:
         'Cortador de Jamón Profesional en Alicante con más de 15 años de experiencia. Servicios para eventos, demostraciones y asesoramiento personalizado.',
       keywords:
