@@ -19,9 +19,9 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.setBasicSeo({
-      title: 'Cortador de jamón para eventos - Lázaro Ortega',
+      title: 'Cortador de Jamón Profesional para Eventos - Lázaro Ortega',
       description:
-        'Servicio profesional de corte de jamón para eventos. Lázaro Ortega, cortador con más de 15 años de experiencia, lleva el arte del corte en directo a tu evento.',
+        'Cortador de Jamón para Eventos con más de 15 años de experiencia. Lázaro Ortega ofrece un servicio profesional de corte en directo ideal para bodas, celebraciones y eventos corporativos.',
       keywords:
         'cortador de jamón para eventos, celebraciones, servicio de corte, jamón ibérico, cortador profesional, eventos privados, jamón en vivo, Lázaro Ortega Izquierdo',
     });
