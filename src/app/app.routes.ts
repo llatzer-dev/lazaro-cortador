@@ -3,7 +3,7 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { LocalComponent } from './routes/local/page/local/local.component';
 import { LocalidadGuard } from './core/guards/localidad.guard';
 
-const AppRoutes = {
+export const AppRoutes = {
   HOME: '',
   GALLERY: 'galeria-fotos',
   ABOUT_ME: 'sobre-mi',
