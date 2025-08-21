@@ -2,7 +2,7 @@ const { LOCALIDADES_VALIDAS } = require("../scripts/local-seo-cities.js");
 const { writeFileSync } = require("fs");
 
 const baseUrl = "https://lazarortega.com";
-const lastmod = "2025-07-25";
+const lastmod = new Date().toISOString().split("T")[0];
 
 const staticUrls = [
   { loc: baseUrl, priority: "1.0" },

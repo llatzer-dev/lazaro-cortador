@@ -7,10 +7,15 @@ const SUFIX_LOCAL = [
   'javea',
   'moraira',
   'benidorm',
+  'villajoyosa',
   'aspe',
   'novelda',
   'elda',
   'elche',
+  'crevillente',
+  'torrevieja',
+  'santa-pola',
+  'san-vicente-del-raspeig',
 ];
 
 export const LOCALIDADES_VALIDAS = SUFIX_LOCAL.map(
