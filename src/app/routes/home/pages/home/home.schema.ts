@@ -6,7 +6,7 @@ export const professionalServiceSchema = {
   url: 'https://lazarortega.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://lazarortega.com/img/lazaro-ortega/favicon.webp',
+    url: 'https://lazarortega.com/img/lazaro-ortega/lazaro-logo-cortador-de-jamon.webp',
     width: 512,
     height: 512,
   },

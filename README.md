@@ -40,3 +40,11 @@ ng serve --open
 | Escritorio                                  | Móvil                                     |
 | ------------------------------------------- | ----------------------------------------- |
 | ![desktop](./assets/screenshot-desktop.png) | ![mobile](./assets/screenshot-mobile.png) |
+
+## ✅ Todo list
+
+- [ ] Crear página exclusiva para la keyword "logo cortador de jamon".
+- [ ] Añadir sección de **testimonios** de clientes.
+- [ ] Incluir vídeos de eventos.
+- [ ] Añadir blog con palabras claves informacionales.
+- [ ] Mejorar o separar el formulario de servicios.
