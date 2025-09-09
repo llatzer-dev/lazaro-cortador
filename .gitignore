@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/scripts/local-seo-cities.js
 
 # Node
 /node_modules

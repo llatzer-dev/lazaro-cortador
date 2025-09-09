@@ -8,6 +8,7 @@ export const AppRoutes = {
   GALLERY: 'galeria-fotos',
   ABOUT_ME: 'sobre-mi',
   EVENTS: 'cortador-de-jamon-eventos',
+  LOGO: 'logo-cortador-jamon',
 };
 
 export const routes: Routes = [
@@ -40,6 +41,11 @@ export const routes: Routes = [
         path: AppRoutes.EVENTS,
         loadChildren: () =>
           import('./routes/events/events.routes').then((m) => m.EVENTS_ROUTES),
+      },
+      {
+        path: AppRoutes.LOGO,
+        loadChildren: () =>
+          import('./routes/logo/logo.routes').then((m) => m.LOGO_ROUTES),
       },
       {
         path: ':localidad',

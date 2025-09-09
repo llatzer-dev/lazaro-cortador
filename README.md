@@ -43,8 +43,9 @@ ng serve --open
 
 ## ✅ Todo list
 
-- [ ] Crear página exclusiva para la keyword "logo cortador de jamon".
+- [x] Crear página exclusiva para la keyword "logo cortador de jamon".
 - [ ] Añadir sección de **testimonios** de clientes.
 - [ ] Incluir vídeos de eventos.
 - [ ] Añadir blog con palabras claves informacionales.
 - [ ] Mejorar o separar el formulario de servicios.
+- [ ] Añadir un Schema global de Organization. https://surfoon.com/blogs/tips/kitesurf-o-windsurf-que-es-mejor-y-diferencias

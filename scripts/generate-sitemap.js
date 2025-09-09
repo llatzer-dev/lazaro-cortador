@@ -9,6 +9,7 @@ const staticUrls = [
   { loc: `${baseUrl}/galeria-fotos`, priority: "0.8" },
   { loc: `${baseUrl}/sobre-mi`, priority: "0.8" },
   { loc: `${baseUrl}/cortador-de-jamon-eventos`, priority: "0.7" },
+  { loc: `${baseUrl}/logo-cortador-jamon`, priority: "0.7" },
 ];
 
 function urlEntry(loc, priority) {
