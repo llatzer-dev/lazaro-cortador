@@ -4,5 +4,98 @@
   <app-servicios />
   <!-- TODO: hacer un apartado de preguntas frecuentes o de Core values. Manifesto. -->
   <app-faq />
-  <app-about-me [isMainPage]="isMainPage" />
+  <!-- <app-about-me [isMainPage]="isMainPage" /> -->
+
+  <section class="text-primary-black pb-16">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center">
+
+      <div>
+        <!-- H1 con el nombre -->
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">
+          Sobre mí
+        </h2>
+
+        <!-- H2 con la profesión -->
+        <h3 class="text-xl md:text-2xl text-tertiary-black text-balance font-medium mb-6">
+          Cortador profesional de jamón en la provincia de Alicante
+        </h3>
+
+        <p class="text-tertiary-black text-balance leading-relaxed mb-6">
+          Soy Lázaro Ortega, cortador de jamón profesional con más de 15 años de experiencia, especializado en eventos
+          para empresas.
+        </p>
+
+        <p class="text-tertiary-black text-balance leading-relaxed mb-6">
+          He formado parte de todo tipo de experiencias —inauguraciones de empresas, conferencias, catas
+          de vino y eventos particulares— ofreciendo un servicio de corte de jamón que crea momentos inolvidables en los
+          comensales.
+        </p>
+
+        <h4 class="text-tertiary-black text-balance leading-relaxed mb-6">
+          Reconocido como uno de los mejores cortadores de jamón profesionales de la provincia de Alicante.
+        </h4>
+
+        <!-- Cita inspiracional como H3 -->
+        <h4 class="text-sm font-medium mb-4 text-primary flex items-center gap-1 flex-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+            <path
+              d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+          </svg>
+          <span class="italic">Corte de jamón con arte y pasión en cada evento</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+            <path
+              d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+          </svg>
+        </h4>
+
+        <!-- Redes Sociales -->
+        <h2 class="text-xl font-semibold text-primary mb-4 mt-10">Redes Sociales</h2>
+        <div class="flex space-x-3 mb-6">
+          <h4>
+            <app-social-icon platform="instagram" url="https://www.instagram.com/lazarortega2/" showLabel="true"
+              size="40" />
+          </h4>
+          <h4>
+            <app-social-icon platform="twitter" url="https://twitter.com/lazarortega2" showLabel="true" size="40" />
+          </h4>
+          <h4>
+            <app-social-icon platform="youtube" url="https://www.youtube.com/@lazaroortegacortador" showLabel="true"
+              size="40" />
+          </h4>
+        </div>
+
+      </div>
+
+      <!-- Imágenes destacadas -->
+      <div class="flex justify-center md:justify-end">
+        <div class="romboide w-44 h-72 md:w-56 md:h-84 rounded-xl shadow-lg overflow-hidden">
+          <img src="img/lazaro-ortega/lazaro-evento-cortando-jamon.webp"
+            alt="Lázaro Ortega cortando jamón en un evento en Alicante" class="w-full h-full object-cover" />
+        </div>
+        <div class="romboide w-44 h-72 md:w-56 md:h-84 rounded-xl shadow-lg overflow-hidden">
+          <img src="img/lazaro-ortega/lazaro-pista-golf.webp"
+            alt="Lázaro Ortega en una pista de golf con un plato de jamón cortado en Alicante"
+            class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+    </div>
+
+    <app-scrollstats />
+
+    <!-- Call To Action -->
+    <div class="text-center">
+      <a href="#servicios"
+        class="inline-block mt-8 bg-secondary text-primary-white hover:bg-secondary-hover px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+        Pide presupuesto
+      </a>
+    </div>
+  </section>
+
 </div>

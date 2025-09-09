@@ -14,6 +14,8 @@ import { SeoService } from '@app/core/services/common/seo.service';
 import { AboutMeComponent } from '../../../about-me/pages/about-me/about-me.component';
 import { DOCUMENT } from '@angular/common';
 import { professionalServiceSchema } from './home.schema';
+import { ScrollStatsComponent } from '@app/routes/about-me/components/scroll-stats/scroll-stats.component';
+import { SocialIconComponent } from '@app/core/layout/icons/social-icon/social-icon.component';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,8 @@ import { professionalServiceSchema } from './home.schema';
     ColeccionesComponent,
     ServiciosComponent,
     FaqComponent,
-    AboutMeComponent,
+    ScrollStatsComponent,
+    SocialIconComponent,
   ],
   providers: [AutoDestroyService],
   templateUrl: './home.component.html',

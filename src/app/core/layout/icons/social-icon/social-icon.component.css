@@ -1,0 +1,85 @@
+/* Estilos base para todos los enlaces sociales */
+a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+.social-instagram {
+  color: #e4405f;
+}
+
+.social-instagram:hover {
+  color: #c13584;
+}
+
+.social-facebook {
+  color: #1877f2;
+}
+
+.social-facebook:hover {
+  color: #166fe5;
+}
+
+.social-whatsapp {
+  color: #25d366;
+}
+
+.social-whatsapp:hover {
+  color: #1ebe57;
+}
+
+.social-linkedin {
+  color: #0077b5;
+}
+
+.social-linkedin:hover {
+  color: #005885;
+}
+
+.social-twitter {
+  color: #1da1f2;
+}
+
+.social-twitter:hover {
+  color: #1a91da;
+}
+
+.social-tiktok {
+  color: #000000;
+}
+
+.social-tiktok:hover {
+  color: #333333;
+}
+
+.social-youtube {
+  color: #ff0000;
+}
+
+.social-youtube:hover {
+  color: #cc0000;
+}
+
+/* Clase por defecto para plataformas no definidas */
+.social-default {
+  color: #6b7280;
+}
+
+.social-default:hover {
+  color: #3b82f6;
+}

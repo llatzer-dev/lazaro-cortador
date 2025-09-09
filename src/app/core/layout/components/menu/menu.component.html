@@ -1,14 +1,16 @@
 <!-- NAV ESCRITORIO -->
-<nav class="hidden md:block fixed w-full z-50 bg-primary text-white">
+<nav class="hidden md:block fixed w-full py-2 z-50 bg-primary text-white">
   <div class="max-w-4xl mx-auto">
     <div class="py-2 flex items-center justify-between">
-      <!-- Izquierda: Logo y nombre -->
-      <a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:underline flex items-center gap-x-4 flex-1 whitespace-nowrap">
-        <img src="img/lazaro-ortega/lazaro-logo-cortador-de-jamon.webp" alt="Logo Cortador de Jamón Lázaro Ortega"
-          class="w-10 h-10 rounded-2xl" />
-        <span class="text-2xl font-bold tracking-wide">Lázaro Ortega</span>
-      </a>
+      <div class="flex items-center gap-x-4 flex-1 whitespace-nowrap">
+        <a routerLink="/logo-cortador-jamon" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }">
+          <img src="img/lazaro-ortega/lazaro-logo-cortador-de-jamon.webp" alt="Logo Cortador de Jamón Lázaro Ortega"
+            class="w-10 h-10 rounded-xl" />
+        </a>
+
+        <a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }"
+          class="text-2xl font-bold tracking-wide hover:underline">Lázaro Ortega</a>
+      </div>
 
       <!-- Centro: Menú -->
       <div class="flex justify-center gap-x-6 flex-1">
@@ -22,8 +24,9 @@
         </a>
       </div>
 
-      <!-- Derecha: Contactar -->
-      <div class="flex justify-end flex-1">
+      <!-- Derecha: Contactar y Redes Sociales -->
+      <div class="flex justify-end items-center gap-4 flex-1">
+        <!-- Botón de contactar -->
         <a href="https://wa.me/qr/ZQX2NZV7W66QN1" target="_blank" rel="noopener"
           class="flex items-center gap-x-3 px-6 py-3 uppercase text-lg rounded-xl bg-whatsapp text-white font-semibold transform transition-transform duration-300 hover:scale-110 cursor-pointer">
 
@@ -35,6 +38,15 @@
 
           CONTACTAR
         </a>
+
+        <!-- Iconos de redes sociales -->
+        <div class="flex space-x-3">
+          <app-social-icon class="text-white" platform="instagram" url="https://www.instagram.com/lazarortega2/"
+            showLabel="false" size="25" />
+          <app-social-icon platform="twitter" url="https://twitter.com/lazarortega2" showLabel="false" size="25" />
+          <app-social-icon platform="youtube" url="https://www.youtube.com/@lazaroortegacortador" showLabel="false"
+            size="25" />
+        </div>
       </div>
 
     </div>

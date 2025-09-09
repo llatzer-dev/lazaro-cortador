@@ -1,0 +1,15 @@
+<a [href]="url()" target="_blank" rel="noopener noreferrer"
+  class="inline-flex items-center gap-2 transition-colors duration-300"
+  [class.social-instagram]="platform() === 'instagram'" [class.social-facebook]="platform() === 'facebook'"
+  [class.social-whatsapp]="platform() === 'whatsapp'" [class.social-linkedin]="platform() === 'linkedin'"
+  [class.social-twitter]="platform() === 'twitter'" [class.social-tiktok]="platform() === 'tiktok'"
+  [class.social-youtube]="platform() === 'youtube'" [attr.aria-label]="'Síguenos en ' + label()">
+
+  <svg [attr.width]="size()" [attr.height]="size()" viewBox="0 0 24 24" fill="currentColor">
+    <path [attr.d]="svgPath()"></path>
+  </svg>
+
+  @if (showLabel()) {
+  <span class="font-medium">{{ label() }}</span>
+  }
+</a>
